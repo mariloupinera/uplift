@@ -10,10 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_140231) do
+ActiveRecord::Schema.define(version: 2021_06_08_133818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.string "content"
+    t.integer "status"
+    t.integer "done"
+    t.bigint "favour_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["favour_id"], name: "index_applications_on_favour_id"
+    t.index ["user_id"], name: "index_applications_on_user_id"
+  end
+
+  create_table "credits", force: :cascade do |t|
+    t.integer "amount_available"
+    t.integer "amount_redeemed"
+    t.integer "balance"
+    t.bigint "application_id", null: false
+    t.bigint "favour_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["application_id"], name: "index_credits_on_application_id"
+    t.index ["favour_id"], name: "index_credits_on_favour_id"
+  end
+
+  create_table "favour_types", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favours", force: :cascade do |t|
+    t.string "duration"
+    t.string "description"
+    t.string "zone"
+    t.bigint "user_id", null: false
+    t.bigint "favour_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["favour_type_id"], name: "index_favours_on_favour_type_id"
+    t.index ["user_id"], name: "index_favours_on_user_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "skill_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_skills", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skill_id"], name: "index_user_skills_on_skill_id"
+    t.index ["user_id"], name: "index_user_skills_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +80,20 @@ ActiveRecord::Schema.define(version: 2021_06_07_140231) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "address"
+    t.string "phone_number"
+    t.string "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "applications", "favours"
+  add_foreign_key "applications", "users"
+  add_foreign_key "credits", "applications"
+  add_foreign_key "credits", "favours"
+  add_foreign_key "favours", "favour_types"
+  add_foreign_key "favours", "users"
+  add_foreign_key "user_skills", "skills"
+  add_foreign_key "user_skills", "users"
 end
