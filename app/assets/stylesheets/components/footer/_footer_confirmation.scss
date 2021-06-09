@@ -7,6 +7,9 @@
     height: 100px;
     padding: 0px 50px;
     color: rgb(255, 255, 255);
+    z-index: 1000;
+    background: white;
+    margin-top: 0px;
   }
   .footer-links-confirmation {
     display: flex;
@@ -27,8 +30,8 @@
   .cancel {
     color: rgb(255, 255, 255);
   }
- 
+
   .done {
     color: #F52829;
   }
- 
+

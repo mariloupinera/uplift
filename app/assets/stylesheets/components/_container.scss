@@ -1,7 +1,16 @@
+body {
+  background-color: #e9ecef;
+  color: #0E0000;
+}
+
 .container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    display: flex;
+    justify-content: center;
 }
+
+.homepagecontainer {
+  height: calc(100vh - 60px - 50px);
+}
+
+
