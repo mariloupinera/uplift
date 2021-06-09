@@ -1,24 +1,31 @@
 
 .footer-navbar {
-    background: rgba(0, 0, 0, 0);
-    display: flex;
+    background: rgb(0, 0, 0);
     align-items: center;
     justify-content: space-between;
-    height: 100px;
-    padding: 0px 50px;
-    color: rgb(255, 255, 255);
+    height: 50px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
   }
+
   .footer-links {
-    display: flex;
-    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    padding-top: 8px;
   }
+
   .footer-links a {
-    color: black;
-    opacity: 0.15;
+    color: rgb(255, 255, 255);
+    justify-items: center;
+    opacity: 0.6;
     text-decoration: none;
     font-size: 24px;
-    padding: 0px 10px;
+    padding: 0px 28px;
+    
   }
+
   .footer-links a:hover {
     opacity: 1;
   }
