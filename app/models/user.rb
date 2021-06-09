@@ -11,4 +11,12 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :address, presence: true
   validates :skills, presence: true
+
+  def completed_applications
+    applications.where(status: 0, done: 0)
+  end
+
+  def check_credit
+    Credit.joins(application: :user).where(applications: {status: 0, done: 0, user: self })
+  end
 end
