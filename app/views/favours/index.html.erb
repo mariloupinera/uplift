@@ -1,0 +1,17 @@
+<h2>Recommended favours</h2>
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+
+    </div>
+  </div>
+</div>
+
+<% @favours.each do |favour| %>
+<p><%= User.find(favour.user_id)["name"] %></p>
+<p><%= favour.duration %></p>
+<p><%= favour.description %></p>
+<p><%= favour.zone %></p>
+<% end %>
