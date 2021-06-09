@@ -6,3 +6,4 @@ class Favour < ApplicationRecord
   validates :description, presence: true
   validates :zone, presence: true
 end
+
