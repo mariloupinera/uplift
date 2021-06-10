@@ -1,9 +1,14 @@
 class FavoursController < ApplicationController
 
 
-
   def index
     @favours = policy_scope(Favour)
+  end
+
+  def show
+    @favour = Favour.find(params[:id])
+    authorize(@favour)
+    @application = Application.new
   end
 
   def new
