@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_133818) do
+ActiveRecord::Schema.define(version: 2021_06_10_103908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_133818) do
     t.bigint "favour_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
     t.index ["favour_type_id"], name: "index_favours_on_favour_type_id"
     t.index ["user_id"], name: "index_favours_on_user_id"
   end
