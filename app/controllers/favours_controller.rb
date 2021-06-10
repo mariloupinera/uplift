@@ -1,10 +1,12 @@
 class FavoursController < ApplicationController
-
-
-
-  def index
-    @favours = policy_scope(Favour)
-  end
+  
+   def index
+    if params[:query].present?
+      @favours = policy_scope(Favour.where("zone ILIKE ?", "%#{params[:query]}%"))
+    else
+      @favours = policy_scope(Favour.includes(:user))
+    end
+   end  
 
   def new
     @favour = Favour.new
@@ -20,6 +22,8 @@ class FavoursController < ApplicationController
       render :new
     end
   end
+  
+ 
 
   private
 

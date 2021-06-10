@@ -1,17 +1,50 @@
-<h2>Recommended favours</h2>
-
-
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
-
+<div class="container-fluid mt-2">
+  <div class="row">
+    <div class="col-12">
+      <div style="position:relative">
+        <!-- <input type="text" placeholder="Search" class="position-search"> -->
+        <%= form_tag favours_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "position-search",
+          placeholder: "Find a favour"
+        %>
+        <%#= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 
-<% @favours.each do |favour| %>
-<p><%= User.find(favour.user_id)["name"] %></p>
-<p><%= favour.duration %></p>
-<p><%= favour.description %></p>
-<p><%= favour.zone %></p>
-<% end %>
+
+
+
+
+
+
+
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center mb-3">RECOMMENDED</h2>
+      <% @favours.each do |favour| %>
+      <div class="card-favour mb-4">
+        <div style="display:flex; justify-content:space-between">
+          <div class="card-user-details">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class= "avatar-rounded" alt="User profile picture">
+            <p class="user-name"><%= favour.user.name %></p>
+          </div>
+          <div style="width:180px">
+            <p class= "favour-description" style="color:grey";>Favour request:</p>
+            <p class= "favour-description"><%=favour.description%></p>
+          </div>
+          <!-- <p class= "rating">4 stars</p> -->
+        </div>
+      </div>
+      <%end %>
+    </div>
+  </div>
+</div>
+
+
+
