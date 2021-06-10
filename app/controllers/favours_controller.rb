@@ -1,5 +1,12 @@
 class FavoursController < ApplicationController
 
+
+
+  def index
+    @favours = policy_scope(Favour)
+  end
+
+
   def create
   @favour = Favour.new(favour_params)
   @favour.user = current_user
@@ -10,7 +17,5 @@ class FavoursController < ApplicationController
     end
   end
 
-  def index
-    @favours = policy_scope(Favour)
-  end
+  
 end
