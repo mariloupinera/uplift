@@ -13,6 +13,4 @@ class FavourPolicy < ApplicationPolicy
   def create?
     true
   end
-
-
 end

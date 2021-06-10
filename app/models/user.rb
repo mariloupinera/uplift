@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :skills, through: :user_skills
   validates :name, presence: true, uniqueness: true
   validates :address, presence: true
-  validates :skills, presence: true
 
   def completed_applications
     applications.where(status: 0, done: 0)
