@@ -1,9 +1,11 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs"
+  style="padding-top: 100px; padding-left: 30px; padding-right: 30px;">
+    <h3>Edit below<%= resource_name.to_s.humanize %></h3><br>
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -20,16 +22,16 @@
     <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
                 required: true,
-                input_html: { autocomplete: "current-password" } %>
-  </div>
+                input_html: { autocomplete: "current-password" } %><br>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update", class: "btn-ghost-filled2" %>
   </div>
-<% end %>
+<% end %><br>
 
-<h3>Cancel my account</h3>
+<h3>Cancel my account</h3><br>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= link_to "Cancel my account", class: "btn-ghost2",registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", class: "btn-ghost_filled2", :back %>
+</div>
