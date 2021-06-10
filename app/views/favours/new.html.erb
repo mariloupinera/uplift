@@ -9,12 +9,12 @@
 			  <%= simple_form_for(@favour) do |f| %>
 
         <div class="form-inputs text-center">
-          <%= f.input :title, label: 'What is the title of your favour?',hint: 'Eg : Plumbing in kitchen, Electrical light fittings' %>
+          <%= f.input :title, label: 'What is the title of your favour?', placeholder: 'Eg : Plumbing in kitchen, Electrical light fittings' %>
         </div>
 
 
         <div class="form-inputs text-center">
-          <%= f.input :duration, label: 'How much time would you need?',hint: 'Write the estimated number of hours' %>
+          <%= f.input :duration, label: 'How much time would you need?', placeholder: 'Write the estimated number of hours' %>
         </div>
 
 
@@ -27,8 +27,10 @@
             <%= f.input :zone, label: 'Which zone do you need the favour in?' %>
         </div>
 
-        <div class="favour-image text-center justify-content-center">
+        <div class="favour-image d-flex justify-content-center">
+          <div class="w-75 text-center">
           <%= f.input :photo, as: :file, label: 'Attach photo of favour'%>
+          </div>
         </div>
 
         <br>
