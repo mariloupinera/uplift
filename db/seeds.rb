@@ -16,7 +16,9 @@ p gardening = Skill.find_or_create_by(skill_type: 'gardening')
 
 p housekeeping = Skill.find_or_create_by(skill_type: 'housekeeping')
 
+p accounting = Skill.find_or_create_by(skill_type: 'accounting')
 
+p clerical = Skill.find_or_create_by(skill_type: 'clerical')
 
 
 
@@ -33,6 +35,14 @@ p john = User.new(name: 'John', address: '124 Lane', email: 'john@gmail.com', sk
 john.password = 'qwerty'
 john.save
 
+p richard = User.new(name: 'Richard', address: '124 Lane', email: 'richard@gmail.com', skills: [accounting, clerical])
+richard.password = 'qwerty'
+richard.save
+
+p pierre = User.new(name: 'Pierre', address: '124 Tiny Lane', email: 'pierre@gmail.com', skills: [accounting, clerical, gardening])
+pierre.password = 'qwerty'
+pierre.save
+
 
 
 # Favour Types
@@ -43,6 +53,12 @@ plumbing.save
 
 p gardening = FavourType.find_or_create_by(content: 'gardening')
 gardening.save
+
+p financial = FavourType.find_or_create_by(content: 'financial')
+financial.save
+
+p clerical = FavourType.find_or_create_by(content: 'clerical')
+clerical.save
 
 
 
@@ -60,6 +76,12 @@ p plumbing_house.errors.full_messages
 
 p gardening_house = Favour.find_or_create_by(duration: 'one day', description: 'tending to my garden', zone: 'West', user: peter, favour_type: gardening)
 gardening_house.save
+
+p tax_returns = Favour.find_or_create_by(duration: 'one week', description: 'Someone to work on my tax returns', zone: 'West', user: richard, favour_type: financial)
+tax_returns.save
+
+p admin_work = Favour.find_or_create_by(duration: 'one week', description: 'A temporary secretary to make my life easier', zone: 'West', user: pierre, favour_type: clerical)
+admin_work.save
 
 
 
