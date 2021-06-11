@@ -1,17 +1,21 @@
 
-<div class="container-fluid">
-  <div class="row mt-5">
-		<div class="col-12 col-lg-12 col-sm-4 mt-4">
 
-			<h4 class="header-2 mb-3 pt-2 text-center" > ASK THE COMMUNITY </h4>
+  <div class="container-fluid" style="overflow-scroll">
+  <div class="row">
+    <div class="col-12 col-lg-12 col-sm-4 mt-4">
 
-      <div class="">
-			  <%= simple_form_for(@favour) do |f| %>
+      <h4 class="header-2 mb-3 pt-2 text-center"> ASK THE COMMUNITY </h4>
+
+      <div class="ml-1 mr-1">
+        <%= simple_form_for(@favour) do |f| %>
+
+        <%# <div class="form-inputs text-center">
+          <%= f.input :title, label: 'What is the title of your favour?', placeholder: 'Eg : Plumbing in kitchen, Electrical light fittings' %>
+        <%# </div>  %>
 
         <div class="form-inputs text-center">
-          <%= f.input :title, label: 'What is the title of your favour?', placeholder: 'Eg : Plumbing in kitchen, Electrical light fittings' %>
+            <%= f.association :favour_type, collection: FavourType::TYPES, label: 'Choose your favour type'  %>
         </div>
-
 
         <div class="form-inputs text-center">
           <%= f.input :duration, label: 'How much time would you need?', placeholder: 'Write the estimated number of hours' %>
@@ -19,13 +23,14 @@
 
 
         <div class="form-inputs text-center">
-            <%= f.input :description, as: :text, input_html:{rows: 4}, label: 'Describe your favour' %>
+            <%= f.input :description, as: :text, input_html:{rows: 3}, label: 'Describe your favour' %>
         </div>
 
 
         <div class="form-inputs text-center">
             <%= f.input :zone, label: 'Which zone do you need the favour in?' %>
         </div>
+
 
         <div class="favour-image d-flex justify-content-center">
           <div class="w-75 text-center">
@@ -34,18 +39,20 @@
         </div>
 
         <br>
+
         <div class="button">
           <div class="row justify-content-center">
 
-          <p><%= f.submit "Submit", class: "btn-ghost-filled" %></p>
+          <p><%= f.submit "Submit", class: "btn-ghost-filled2" %></p>
           
           </div>
         </div>
         <% end %>
       </div>
-		</div>
+    </div>
   </div>
-</div>
+  </div>
+
 
 
 <%# <%= simple_form_for @user do |f| %>
