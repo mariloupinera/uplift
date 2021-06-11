@@ -1,1 +1,7 @@
+
 <h1> FAVOUR </h1>
+<br>
+<% if user_signed_in? %>
+<%= link_to 'Apply', favour_applications_path(@favour), method: :post, remote: true, class: "btn-ghost-filled" %>
+<% end %>
+
