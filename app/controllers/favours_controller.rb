@@ -7,7 +7,7 @@ class FavoursController < ApplicationController
     else
       @favours = policy_scope(Favour.includes(:user))
     end
-   end  
+   end
 
 
   def show
@@ -24,16 +24,14 @@ class FavoursController < ApplicationController
   @favour = Favour.new(favour_params)
   authorize(@favour)
   @favour.user = current_user
-  @favour.favour_type_id = favour_type_id
-
     if @favour.save
       redirect_to favours_path, notice: 'Your favour was added!'
     else
       render :new
     end
   end
-  
- 
+
+
 
   private
 
