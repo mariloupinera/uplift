@@ -1,4 +1,5 @@
 class FavoursController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show, :new, :create]
 
    def index
     if params[:query].present?
@@ -21,7 +22,10 @@ class FavoursController < ApplicationController
 
   def create
   @favour = Favour.new(favour_params)
+  authorize(@favour)
   @favour.user = current_user
+  @favour.favour_type_id = favour_type_id
+
     if @favour.save
       redirect_to favours_path, notice: 'Your favour was added!'
     else
@@ -34,7 +38,7 @@ class FavoursController < ApplicationController
   private
 
   def favour_params
-    params.require(:favour).permit(:title, :duration, :description, :zone, :photo)
+    params.require(:favour).permit(:title, :duration, :description, :zone, :photo, :favour_type_id)
   end
 
 end
