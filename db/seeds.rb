@@ -89,18 +89,21 @@ admin_work.save
 
 # Applications
 
-p application_1 = Application.find_or_create_by(content: 'Would be great to get this task', status: 'accepted', done: 'completed', favour: plumbing_house, user: john)
+p application_1 = Application.find_or_create_by(content: 'Would be great to get this task', status: 'accepted', done: 'completed', favour: plumbing_house, user: peter)
 application_1.save
 p application_1.errors.full_messages
 
-p application_2 = Application.find_or_create_by(content: 'Would be great to perform this task. Lots of relevant experience.', status: 'pending', done: 'incomplete', favour: gardening_house, user: peter)
+p application_2 = Application.find_or_create_by(content: 'Would be great to perform this task. Lots of relevant experience.', status: 'pending', done: 'incomplete', favour: gardening_house, user: john)
 application_2.save
+p application_2.errors.full_messages
 
 p application_3 = Application.find_or_create_by(content: 'Experience of 4 years. Would be great to connect!', status: 'declined', done: 'incomplete', favour: plumbing_house, user: peter)
 application_3.save
+p application_3.errors.full_messages
 
-p application_4 = Application.find_or_create_by(content: 'Experience of 10 years. Would be great to work together!', status: 'declined', done: 'completed', favour: plumbing_house, user: john)
+p application_4 = Application.find_or_create_by(content: 'Experience of 10 years. Would be great to work together!', status: 'declined', done: 'incomplete', favour: plumbing_house, user: peter)
 application_4.save
+p application_4.errors.full_messages
 p application_4.errors.full_messages
 
 

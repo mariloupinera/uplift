@@ -20,6 +20,17 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def update
+    @application = Application.find(params[:id])
+    if params[:status] == 0
+      @application.accepted!
+    elsif params[:status] == 1
+      @application.declined!
+    end
+    authorize @application
+    @application.save
+  end
+
   private
 
   # def application_params
