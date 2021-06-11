@@ -28,6 +28,7 @@
     <div class="col-12">
       <h2 class="text-center mb-3">RECOMMENDED</h2>
       <% @favours.each do |favour| %>
+      <%= link_to favour_path(favour) do  %>
       <div class="card-favour mb-4">
         <div style="display:flex; justify-content:space-between">
           <div class="card-user-details">
@@ -42,6 +43,7 @@
         </div>
       </div>
       <%end %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,3 +1,11 @@
+a {
+  color: inherit !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
