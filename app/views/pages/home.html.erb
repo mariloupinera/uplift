@@ -1,16 +1,16 @@
 <div class="container homepagecontainer">
    <div class="row mt-5">
-    <div class="col-12 col-lg-12 col-sm-4 mt-4" style="margin-top: -50px !important;  overflow: hidden !important;">
+    <div class="col-12 col-lg-12 col-sm-4 mt-4" style="margin-top: 10px !important;  overflow: hidden !important;">
       <div style=" padding-top: 0px;">
         <div class="banner">
           <h1 style="font-size: 50px"><strong>Change Lives One Favour<br>at a Time</strong></h1>
           <p style="font-size: 30px">Exchange favours.<br> Make an impact <br>locally. </p>
           <br>
           <div style="display: flex; justify-content: space-around;">
-            <button class="btn-ghost-filled2">Ask a favour</button>
+            <!-- <button class="btn-ghost-filled2">Ask a favour</button>
             <button class="btn-ghost2">Offer a help</button>
-       <%#= link_to 'Ask a Favour', new_path, class: "../primarybutton/btn btn-ghost-filled" %>
-      <%#= link_to 'Help Someone', new_path, class: "../primarybutton/btn btn-ghost" %>
+ -->        <%= link_to 'Ask a Favour', new_favour_path, class: "btn btn-ghost-filled2" %>
+            <%= link_to 'Help Someone', favours_path, class: "btn btn-ghost2" %>
           </div>
         </div>
       </div>
