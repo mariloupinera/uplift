@@ -5,10 +5,10 @@
 
 	<div class="avatar-show-rounded">
 		<%# <% if @user.photo.attached?%>
-			<%# <%= cl_image_tag @user.photo.key%> 
-		<%# <% else %> 
+			<%# <%= cl_image_tag @user.photo.key%>
+		<%# <% else %>
 			<%# <%= image_tag('Bathroom_1.jpg') %>
-		<%# <% end %> 
+		<%# <% end %>
 	</div>
 
 	<div class="col-12 col-lg-12 col-sm-4">
@@ -25,7 +25,7 @@
 		<div class="text-box m-3 mt-5">
 		<br>
 			<h4> Plumbing </h4>
-				<%# <%= @favour.favour_type favour_type, collection: FavourType::TYPES %> 
+				<%# <%= @favour.favour_type favour_type, collection: FavourType::TYPES %>
 			<p>
 				<strong>How much time is needed:</strong>
 				<%= @favour.duration %>
@@ -47,6 +47,6 @@
 
 <br>
 <% if user_signed_in? %>
-<%= link_to 'Apply', favour_applications_path(@favour), method: :post, remote: true, class: "btn-ghost-filled2" %>
+<%= link_to 'Apply', favour_applications_path(@favour), method: :post, class: "btn-ghost-filled2" %>
 <% end %>
 
