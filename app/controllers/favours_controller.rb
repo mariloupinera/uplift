@@ -12,7 +12,6 @@ class FavoursController < ApplicationController
   def show
     @favour = Favour.find(params[:id])
     authorize(@favour)
-    @application = Application.new
   end
 
   def new
