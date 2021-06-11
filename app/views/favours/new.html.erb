@@ -2,7 +2,7 @@
 
   <div class="container-fluid" style="overflow-scroll">
   <div class="row">
-    <div class="col-12 col-lg-12 col-sm-4 mt-4">
+    <div class="col-12 col-lg-12 col-sm-4 mt-4" style="margin-top: 60px !important;">
 
       <h4 class="header-2 mb-3 pt-2 text-center"> ASK THE COMMUNITY </h4>
 
@@ -14,21 +14,21 @@
         <%# </div>  %>
 
         <div class="form-inputs text-center">
-            <%= f.association :favour_type, collection: FavourType::TYPES, label: 'Choose your favour type'  %>
+            <%= f.association :favour_type, collection: FavourType::TYPES, label: 'Choose your favour type'  %><br>
         </div>
 
         <div class="form-inputs text-center">
-          <%= f.input :duration, label: 'How much time would you need?', placeholder: 'Write the estimated number of hours' %>
-        </div>
-
-
-        <div class="form-inputs text-center">
-            <%= f.input :description, as: :text, input_html:{rows: 3}, label: 'Describe your favour' %>
+          <%= f.input :duration, label: 'How much time would you need?', placeholder: 'Write the estimated number of hours' %><br>
         </div>
 
 
         <div class="form-inputs text-center">
-            <%= f.input :zone, label: 'Which zone do you need the favour in?' %>
+            <%= f.input :description, as: :text, input_html:{rows: 3}, label: 'Describe your favour' %><br>
+        </div>
+
+
+        <div class="form-inputs text-center">
+            <%= f.input :zone, label: 'Which zone do you need the favour in?' %><br>
         </div>
 
 
@@ -44,7 +44,7 @@
           <div class="row justify-content-center">
 
           <p><%= f.submit "Submit", class: "btn-ghost-filled2" %></p>
-         
+
           </div>
         </div>
         <% end %>
