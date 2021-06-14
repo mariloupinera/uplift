@@ -9,8 +9,7 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 2021_06_14_073535) do
+ActiveRecord::Schema.define(version: 2021_06_14_143227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,9 +48,7 @@ ActiveRecord::Schema.define(version: 2021_06_14_073535) do
   end
 
   create_table "credits", force: :cascade do |t|
-    t.integer "amount_available"
     t.integer "amount_redeemed"
-    t.integer "balance"
     t.bigint "application_id", null: false
     t.bigint "favour_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -64,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_06_14_073535) do
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "amount_available"
   end
 
   create_table "favours", force: :cascade do |t|
