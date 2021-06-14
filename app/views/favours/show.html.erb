@@ -1,50 +1,52 @@
 
-<div class="homepagecontainer">
+	<div style="overflow-scroll">
+		<div class="col-12 col-sm-4">
+			<div class="row">
+			<% photo_path =  @favour.photo.attached? ? cl_image_path(@favour.photo.key)  : image_path('Bathroom_1.png') %>
+				<div class="image-favour" style= "background-image: url(<%= photo_path %>)">
+				
+				</div>
 
+				<div class="avatar-show-rounded"> 
+						<%= image_tag('Profile pic5.jpg', class:"rounded-circle",height: '80px',width: '80px') %>
+				</div>
 
+				<div class="user-name">
+				<h6><%= @favour.user.name %></h6>
+				</div>
 
-	<div class="avatar-show-rounded">
-		<%# <% if @user.photo.attached?%>
-			<%# <%= cl_image_tag @user.photo.key%>
-		<%# <% else %>
-			<%# <%= image_tag('Bathroom_1.jpg') %>
-		<%# <% end %>
-	</div>
+				<%# <div class="favour-needed">
+				<%# <h6><%= @favour.user.name %>
+				<%# </div> %> 
 
-	<div class="col-12 col-lg-12 col-sm-4">
+				<div class="ratings">
+					<p class="m-0 justify-content-center">4.5/5
+				<%= image_tag('star.png', height: '16px',width: '18px') %></p>	
+				</div>
+				
+				<div class="text-box ml-3 mt-5">
+					<h4 class="mb-2">I need help with <%=@favour.favour_type.content%></h4>
+						<%# <%= @favour.favour_type, collection: FavourType::TYPES %>
+					
+					<p class="mb-1">How much time is needed:
+						<%= @favour.duration %></p>
 
-		<div class="">
-			<% if @favour.photo.attached?%>
-				<%= cl_image_tag @favour.photo.key%>
-			<% else %>
-				<%= image_tag('Bathroom_1.png', height: '300px',width: '400px') %>
-			<% end %>
+					<p class="mb-1">Location:
+						<%= @favour.zone %></p>
+
+					<p class="mb-1"><%= @favour.description %></p>
+				</div>
+			
+				<br>
+
+				<div class="ml-3 mb-5 mt-5" style= "justify-content: space-around; display: inline">
+					<% if user_signed_in? %>
+					<%= link_to 'Apply', favour_applications_path(@favour), method: :post, class: "btn-ghost-filled2" %>
+					<% end %>	
+					 <%= link_to 'See all favours', favours_path, class: "btn btn-ghost2" %>
+
+				</div>
+			</div>
+
 		</div>
-
-
-		<div class="text-box m-3 mt-5">
-		<br>
-			<h4> Plumbing </h4>
-				<%# <%= @favour.favour_type favour_type, collection: FavourType::TYPES %>
-			<p>
-				<strong>How much time is needed:</strong>
-				<%= @favour.duration %>
-			</p>
-
-			<p>
-				<strong>Location:</strong>
-				<%= @favour.zone %>
-			</p>
-
-			<p>
-				<%= @favour.description %>
-			</p>
-		</div>
 	</div>
-</div>
-
-<br>
-<% if user_signed_in? %>
-<%= link_to 'Apply', favour_applications_path(@favour), method: :post, class: "btn-ghost-filled2" %>
-<% end %>
-
