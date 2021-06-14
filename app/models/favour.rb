@@ -6,5 +6,8 @@ class Favour < ApplicationRecord
   validates :description, presence: true
   validates :zone, presence: true
   has_one_attached :photo
+
+  geocoded_by :zone
+  after_validation :geocode, if: :will_save_change_to_zone?
 end
 

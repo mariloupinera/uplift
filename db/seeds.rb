@@ -6,7 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Application.destroy_all
+Credit.destroy_all
+Favour.destroy_all
+FavourType.destroy_all
 User.destroy_all
+
 
 # Skills
 
@@ -48,16 +53,16 @@ pierre.save
 # Favour Types
 
 
-p plumbing = FavourType.find_or_create_by(content: 'plumbing')
+p plumbing = FavourType.find_or_create_by(content: 'plumbing', amount_available: 20)
 plumbing.save
 
-p gardening = FavourType.find_or_create_by(content: 'gardening')
+p gardening = FavourType.find_or_create_by(content: 'gardening', amount_available: 25)
 gardening.save
 
-p financial = FavourType.find_or_create_by(content: 'financial')
+p financial = FavourType.find_or_create_by(content: 'financial', amount_available: 30)
 financial.save
 
-p clerical = FavourType.find_or_create_by(content: 'clerical')
+p clerical = FavourType.find_or_create_by(content: 'clerical', amount_available: 30)
 clerical.save
 
 
@@ -74,10 +79,10 @@ plumbing_house.save
 p plumbing_house.errors.full_messages
 
 
-p gardening_house = Favour.find_or_create_by(duration: 'one day', description: 'tending to my garden', zone: 'West', user: peter, favour_type: gardening)
+p gardening_house = Favour.find_or_create_by(duration: 'one day', description: 'tending to my garden', zone: 'Spaarne 16, 2011 CH Haarlem, Netherlands', user: peter, favour_type: gardening)
 gardening_house.save
 
-p tax_returns = Favour.find_or_create_by(duration: 'one week', description: 'Someone to work on my tax returns', zone: 'West', user: richard, favour_type: financial)
+p tax_returns = Favour.find_or_create_by(duration: 'one week', description: 'Someone to work on my tax returns', zone: 'amsterdam', user: richard, favour_type: financial)
 tax_returns.save
 
 p admin_work = Favour.find_or_create_by(duration: 'one week', description: 'A temporary secretary to make my life easier', zone: 'West', user: pierre, favour_type: clerical)
@@ -111,14 +116,14 @@ p application_4.errors.full_messages
 
 # Credits
 
-p credit_1 = Credit.find_or_create_by(amount_available: 20, amount_redeemed: 0, balance: 20, application: application_1, favour: plumbing_house)
+p credit_1 = Credit.find_or_create_by(amount_redeemed: 0, application: application_1, favour: plumbing_house)
 credit_1.save
 p credit_1.errors.full_messages
 
-p credit_2 = Credit.find_or_create_by(amount_available: 30, amount_redeemed: 10, balance: 20, application: application_2, favour: gardening_house)
+p credit_2 = Credit.find_or_create_by(amount_redeemed: 10, application: application_2, favour: gardening_house)
 credit_2.save
 
-p credit_3 = Credit.find_or_create_by(amount_available: 0, amount_redeemed: 0, balance: 0, application: application_3, favour: gardening_house)
+p credit_3 = Credit.find_or_create_by(amount_redeemed: 0, application: application_3, favour: gardening_house)
 credit_3.save
 
 
