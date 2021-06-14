@@ -1,4 +1,5 @@
 
+
 <div class="homepagecontainer">
 
 
@@ -19,15 +20,20 @@
 			<% else %>
 				<%= image_tag('Bathroom_1.png', height: '300px',width: '400px') %>
 			<% end %>
-		</div>
+		</div><br>
 
+
+    <div id="map"
+         style="margin-left: 50px; width: 80%; height: 120px;"
+         data-markers="<%= @markers.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 		<div class="text-box m-3 mt-5">
 		<br>
-			<h4> Plumbing </h4>
+			<h4> Classification </h4>
 				<%# <%= @favour.favour_type favour_type, collection: FavourType::TYPES %>
 			<p>
-				<strong>How much time is needed:</strong>
+				<strong>Duration: </strong>
 				<%= @favour.duration %>
 			</p>
 
@@ -37,14 +43,18 @@
 			</p>
 
 			<p>
+        <strong>Description: </strong>
 				<%= @favour.description %>
 			</p>
 		</div>
-	</div>
+     </div>
 </div>
 
-<br>
+<div id="apply" style="display: flex; justify-content: center; padding-bottom: 10px;">
 <% if user_signed_in? %>
 <%= link_to 'Apply', favour_applications_path(@favour), method: :post, class: "btn-ghost-filled2" %>
 <% end %>
+</div>
+
+
 

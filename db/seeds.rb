@@ -74,10 +74,10 @@ plumbing_house.save
 p plumbing_house.errors.full_messages
 
 
-p gardening_house = Favour.find_or_create_by(duration: 'one day', description: 'tending to my garden', zone: 'West', user: peter, favour_type: gardening)
+p gardening_house = Favour.find_or_create_by(duration: 'one day', description: 'tending to my garden', zone: 'Spaarne 16, 2011 CH Haarlem, Netherlands', user: peter, favour_type: gardening)
 gardening_house.save
 
-p tax_returns = Favour.find_or_create_by(duration: 'one week', description: 'Someone to work on my tax returns', zone: 'West', user: richard, favour_type: financial)
+p tax_returns = Favour.find_or_create_by(duration: 'one week', description: 'Someone to work on my tax returns', zone: 'amsterdam', user: richard, favour_type: financial)
 tax_returns.save
 
 p admin_work = Favour.find_or_create_by(duration: 'one week', description: 'A temporary secretary to make my life easier', zone: 'West', user: pierre, favour_type: clerical)
