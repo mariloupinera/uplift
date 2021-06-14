@@ -1,19 +1,19 @@
 <div class="container-fluid mt-2">
   <div class="row">
     <div class="col-12" style="padding-top: 70px; overflow: scroll !important;">
-      <div style="position:relative">
+      <div style="position: relative;">
         <!-- <input type="text" placeholder="Search" class="position-search"> -->
 
         <div id="map"
-           style="width: 100%; height: 200px;"
            data-markers="<%= @markers.to_json %>"
-           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
 
         <div class= "position-search">
         <%= form_tag favours_path, method: :get do %>
         <%= text_field_tag :query,
         params[:query],
-          placeholder: "Favours near me"
+          placeholder: "Search Location"
         %>
         <%#= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>

@@ -22,6 +22,7 @@ class FavoursController < ApplicationController
 
   def show
     @favour = Favour.find(params[:id])
+    @markers = [{ lat: @favour.latitude, lng: @favour.longitude }]
     authorize(@favour)
   end
 
