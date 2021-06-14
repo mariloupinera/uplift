@@ -17,7 +17,7 @@ class FavoursController < ApplicationController
         lng: favour.longitude
       }
     end
-   end
+  end
 
   def show
     @favour = Favour.find(params[:id])
