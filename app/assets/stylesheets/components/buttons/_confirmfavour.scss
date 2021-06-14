@@ -7,6 +7,10 @@
   opacity: 0.8;
   transition: opacity 0.3s ease;
   background-color: #FDFEFE;
+   &:hover {
+    text-decoration:none;
+    color:#F52829;
+  }
 }
 
 .btn-ghost-filled2 {
@@ -18,6 +22,10 @@
   opacity: 0.8;
   background:#F52829;
   transition: opacity 0.3s ease;
+   &:hover {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .clicked {
