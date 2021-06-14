@@ -5,6 +5,9 @@ class ApplicationsController < ApplicationController
     @applications = policy_scope(Application.includes(:user, :favour))
   end
 
+  def index_done_applications
+    @appications = policy_scope(Application.includes(:user, :favour)).where(status: 0)
+  end
 
   def create
     @application = Application.new
@@ -12,6 +15,7 @@ class ApplicationsController < ApplicationController
     @application.favour = @favour
     @application.user = current_user
     authorize @application
+    @application.pending!
     if @application.save
       redirect_to favour_path(@favour)
       flash[:alert] = "Application successfully submitted"

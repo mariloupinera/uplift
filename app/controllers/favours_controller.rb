@@ -19,7 +19,6 @@ class FavoursController < ApplicationController
     end
    end
 
-
   def show
     @favour = Favour.find(params[:id])
     @markers = [{ lat: @favour.latitude, lng: @favour.longitude }]
@@ -40,6 +39,9 @@ class FavoursController < ApplicationController
     else
       render :new
     end
+
+
+
   end
 
 

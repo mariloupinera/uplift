@@ -9,7 +9,10 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
+
+
 ActiveRecord::Schema.define(version: 2021_06_14_143227) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +80,13 @@ ActiveRecord::Schema.define(version: 2021_06_14_143227) do
     t.float "longitude"
     t.index ["favour_type_id"], name: "index_favours_on_favour_type_id"
     t.index ["user_id"], name: "index_favours_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "skills", force: :cascade do |t|
