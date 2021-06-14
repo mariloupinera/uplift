@@ -14,8 +14,16 @@
             <p class= "favour-description" style="top:15px;"><%=application.favour.description%></p>
           </div>
           <div style="display: inline; position: relative; bottom: -100px; right: 120px;width: 300px">
-             <%= link_to 'Accept', application_path(application, status: 0), method: :patch, class: "btn-ghost-filled2" %>
-            <%= link_to 'Decline', application_path(application, status: 1), method: :patch, class: "btn-ghost2"%>
+            <% if application.accepted? %>
+              <%= link_to 'Accepted', application_path(application, status: 0), method: :patch, class: "clicked btn-ghost-filled2"%>
+            <% elsif application.pending?%>
+               <%= link_to 'Accept', application_path(application, status: 0), method: :patch, class: "btn-ghost-filled2" %>
+             <% end %>
+            <% if application.declined? %>
+              <%= link_to 'Declined', application_path(application, status: 0), method: :patch, class: "clicked btn-ghost2"%>
+            <% elsif application.pending? %>
+               <%= link_to 'Decline', application_path(application, status: 1), method: :patch, class: "btn-ghost2"%>
+             <% end %>
           </div>
           <!-- <p class= "rating">4 stars</p> -->
         </div>
