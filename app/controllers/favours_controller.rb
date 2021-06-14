@@ -9,7 +9,6 @@ class FavoursController < ApplicationController
     end
    end
 
-
   def show
     @favour = Favour.find(params[:id])
     authorize(@favour)
@@ -29,6 +28,9 @@ class FavoursController < ApplicationController
     else
       render :new
     end
+
+
+
   end
 
 

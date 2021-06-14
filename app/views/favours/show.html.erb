@@ -28,13 +28,13 @@
 					<h4 class="mb-2">I need help with <%=@favour.favour_type.content%></h4>
 						<%# <%= @favour.favour_type, collection: FavourType::TYPES %>
 					
-					<p class="mb-1">How much time is needed:
+					<p class="mb-1" style="color:grey"><strong>How much time is needed:</strong>
 						<%= @favour.duration %></p>
 
-					<p class="mb-1">Location:
+					<p class="mb-1" style="color:grey"><strong>Location:</strong>
 						<%= @favour.zone %></p>
 
-					<p class="mb-1"><%= @favour.description %></p>
+					<p class="mb-1 mt-4" style="color:grey"><%= @favour.description %></p>
 				</div>
 			
 				<br>
