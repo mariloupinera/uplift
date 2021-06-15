@@ -37,6 +37,9 @@ class ApplicationsController < ApplicationController
 
   def show
     @application = Application.find(params[:id])
+    @message = Message.new
+
+    authorize @application
   end
 
   private

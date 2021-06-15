@@ -1,6 +1,6 @@
 <h2>showpage of chat/application</h2>
-
-<h1>#<%= @application.name %></h1>
+<% other_user = @application.user == current_user ? @application.favour.user : @application.user %>
+<h1>#<%= other_user.name %></h1>
 <div id="messages" data-application-id="<%= @application.id %>">
   <% @application.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
@@ -14,5 +14,6 @@
 </div>
 
 <%= simple_form_for [ @application, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@application.name}" %>
+  <%= f.input :content, label: false, placeholder: "Message ##{other_user.name}" %>
+  <%= f.submit :send, class: 'btn-ghost-filled2' %>
 <% end %>

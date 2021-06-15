@@ -12,4 +12,8 @@ class AppsPolicy < ApplicationPolicy
   def update?
     record.favour.user == user
   end
+
+  def show?
+    record.favour.user == user || record.user == user
+  end
 end
