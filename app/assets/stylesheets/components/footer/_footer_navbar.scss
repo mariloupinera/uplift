@@ -14,7 +14,8 @@
   text-align: center;
   justify-content: space-around;
   padding-top: 8px;
-  display:flex
+  display:flex;
+
 }
 
 .footer-links a {
@@ -26,3 +27,16 @@
   font-size: 24px;
 }
 
+.user-pop-up {
+  position:absolute;
+  top: 50px;
+  left:-50px;
+  width: 200px;
+  height: 200px;
+  transition: ease 2s;
+  background-color: cadetblue;
+  &.active{
+    top: -200px;
+  }
+
+}
