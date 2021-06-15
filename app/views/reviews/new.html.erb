@@ -5,7 +5,7 @@
       <h4 class="header-2 mb-3 pt-2 text-center"> LEAVE A REVIEW </h4>
 
       <div class="ml-1 mr-1">
-        <%= simple_form_for(@review) do |f| %>
+        <%= simple_form_for([@application, @review]) do |f| %>
 
         <div class="form-inputs text-center">
           <%= f.input :content, as: :text, input_html:{rows: 3}, label: 'Tell us your favour experience', placeholder: 'Write how this person did' %><br>
