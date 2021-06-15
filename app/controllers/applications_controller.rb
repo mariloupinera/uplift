@@ -1,6 +1,5 @@
 class ApplicationsController < ApplicationController
 
-
   def index
     @applications = policy_scope(Application.includes(:user, :favour))
   end
@@ -27,14 +26,28 @@ class ApplicationsController < ApplicationController
 
   def update
     @application = Application.find(params[:id])
-    if params[:status] == 0
+    if params[:status] == "0"
       @application.accepted!
-    elsif params[:status] == 1
+    elsif params[:status] == "1"
       @application.declined!
     end
+
     authorize @application
     @application.save
+    redirect_to applications_path(@favour)
   end
+
+  def mark_as_done
+    @application = Application.find(params[:id])
+    authorize @application
+    if @application.accepted?
+      @application.completed!
+      redirect_to new_application_review_path(@application)
+    end
+    
+         
+  end
+
 
   private
 

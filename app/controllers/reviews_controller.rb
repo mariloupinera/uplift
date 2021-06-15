@@ -1,8 +1,9 @@
 class ReviewsController < ApplicationController
 
   def new
-    @favour = Favour.find(params[:favour_id])
+    skip_authorization
     @application = Application.find(params[:application_id])
+    @favour = @application.favour
     @review = Review.new
   end
 
