@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Application.destroy_all
+
 Credit.destroy_all
+Application.destroy_all
 Favour.destroy_all
 FavourType.destroy_all
 User.destroy_all
@@ -30,7 +31,7 @@ p clerical = Skill.find_or_create_by(skill_type: 'clerical')
 # Users
 
 # byebug
-p peter = User.new(name: 'Peter', address: '123 Street', email: 'peter@gmail.com', skills: [plumbing, gardening])
+p peter = User.new(name: 'Peter', address: '123 Street', email: 'peter@gmail.com', skills: [plumbing, gardening, clerical])
 peter.password = 'qwerty'
 peter.save
 # p peter.errors.full_messages
@@ -111,19 +112,23 @@ application_4.save
 p application_4.errors.full_messages
 p application_4.errors.full_messages
 
-
+p application_5 = Application.find_or_create_by(content: 'Experience of 10 years. Would be great to work together!', status: 'accepted', done: 'completed', favour: admin_work, user: peter)
+application_5.save
 
 
 # Credits
 
-p credit_1 = Credit.find_or_create_by(amount_redeemed: 0, application: application_1, favour: plumbing_house)
+p credit_1 = Credit.find_or_create_by(amount_redeemed: 0, user: john)
 credit_1.save
 p credit_1.errors.full_messages
 
-p credit_2 = Credit.find_or_create_by(amount_redeemed: 10, application: application_2, favour: gardening_house)
+p credit_2 = Credit.find_or_create_by(amount_redeemed: 10, user: peter)
 credit_2.save
 
-p credit_3 = Credit.find_or_create_by(amount_redeemed: 0, application: application_3, favour: gardening_house)
+p credit_3 = Credit.find_or_create_by(amount_redeemed: 0, user: richard)
 credit_3.save
+
+p credit_4 = Credit.find_or_create_by(amount_redeemed: 0, user: pierre)
+credit_4.save
 
 
