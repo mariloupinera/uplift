@@ -78,6 +78,16 @@ ActiveRecord::Schema.define(version: 2021_06_15_083201) do
     t.index ["user_id"], name: "index_favours_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "application_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["application_id"], name: "index_messages_on_application_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.integer "rating"
@@ -122,6 +132,8 @@ ActiveRecord::Schema.define(version: 2021_06_15_083201) do
   add_foreign_key "credits", "users"
   add_foreign_key "favours", "favour_types"
   add_foreign_key "favours", "users"
+  add_foreign_key "messages", "applications"
+  add_foreign_key "messages", "users"
   add_foreign_key "user_skills", "skills"
   add_foreign_key "user_skills", "users"
 end

@@ -1,0 +1,15 @@
+
+<div class="message-container" id="message-<%= message.id %>">
+
+  <i class="author"><br>
+    <span><%= message.user.name %></span>
+  </i>
+
+  <div class="message">
+    <p><%= message.content %></p>
+  </div>
+
+  <div class="timestamp" style="font-size: 10px;">
+    <em><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></em>
+  </div>
+</div>

@@ -44,10 +44,14 @@ class ApplicationsController < ApplicationController
       @application.completed!
       redirect_to new_application_review_path(@application)
     end
-    
-         
   end
 
+  def show
+    @application = Application.find(params[:id])
+    @message = Message.new
+
+    authorize @application
+  end
 
   private
 

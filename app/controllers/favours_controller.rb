@@ -3,14 +3,13 @@ class FavoursController < ApplicationController
 
    def index
       @favours = Favour.all
-     # the `geocoded` scope filters only favours with coordinates (latitude & longitude)
 
     if params[:query].present?
       @favours = policy_scope(Favour.where("zone ILIKE ?", "%#{params[:query]}%"))
     else
       @favours = policy_scope(Favour.includes(:user))
     end
-
+    # the `geocoded` scope filters only favours with coordinates (latitude & longitude)
     @markers = @favours.geocoded.map do |favour|
       {
         lat: favour.latitude,

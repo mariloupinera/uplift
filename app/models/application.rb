@@ -1,6 +1,8 @@
 class Application < ApplicationRecord
   belongs_to :favour
   belongs_to :user
+  has_many :messages
+  has_one :credit, dependent: :destroy
   enum status: [:accepted, :declined, :pending]
   enum done: [:completed, :incomplete]
   validate :application_cannot_be_completed_unless_accepted
