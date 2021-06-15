@@ -1,1 +1,33 @@
-<%#= credit.amount_available %>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12" style="padding-top: 60px;">
+      <h2 class="text-center mt-4" >YOUR CREDIT</h2>
+      <button class="credit-btn mt-4" style="position:absolute; left: 115px; font-size: 20px; font-weight: bold;"><%= current_user.balance %> points</button>
+      <br>
+      <br>
+      <br>
+      <% @transactions.each do |transaction| %>
+      <div class="card-credits mt-4">
+          <div>
+            <div style="width:180px">
+              <p style="color:grey; position:relative; top:35px; right:-50px;"><%= transaction.name%></p>
+              <p style="position:relative; top:35px; right:-50px;"><%= transaction.created_at.strftime('%b %d, %Y') %></p>
+              <p style="position:relative; right:-280px; top: -5px; font-weight:bold;"><%= transaction.amount_formatted %></p>
+            </div>
+          </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

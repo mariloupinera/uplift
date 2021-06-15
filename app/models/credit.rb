@@ -1,13 +1,11 @@
 class Credit < ApplicationRecord
-  belongs_to :application
-  belongs_to :favour
-  has_one :user, through: :application
+  belongs_to :user
 
-  def amount_available
-    favour.favour_type.amount_available
+  def name
+    'Redeemed'
   end
 
-  def balance
-    (favour.favour_type.amount_available) - amount_redeemed
+  def amount_formatted
+    "-#{amount_redeemed}"
   end
 end

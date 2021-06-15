@@ -23,7 +23,7 @@
 				    <%= image_tag('star.png', height: '16px',width: '18px') %></p>
 				</div>
 
-				<div class="text-box ml-3 mt-5" style="margin-right: 20px;">
+				<div class="text-box ml-3 mt-3" style="margin-right: 20px;">
 					<h4 class="mb-2">I need help with <%=@favour.favour_type.content%></h4>
 						<%# <%= @favour.favour_type, collection: FavourType::TYPES %>
 
@@ -38,7 +38,7 @@
 				</div>
 
 			  <div id="map"
-           style="margin-left: 50px; margin-right: 50px; height: 145px; width: 80% !important; "
+           style="margin-left: 20px; margin-right: 20px; height: 145px; width: 100% !important; "
            data-markers="<%= @markers.to_json %>"
            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
         </div><br>
@@ -46,7 +46,7 @@
 				<div class="ml-3 mb-5 mt-5" style= "padding-left: 25px; display: initial;">
 					<% if user_signed_in? %>
 					<%= link_to 'Apply', favour_applications_path(@favour), method: :post, class: "btn-ghost-filled2" %>
-          <%= link_to 'Back to Favours', favours_path, class: "btn-ghost2" %>
+          <%# <%= link_to 'Confirm done', mark_as_done_application_path, class: "btn-ghost2" %>
           <% else %>
             <%= link_to 'Favours', favours_path, class: "btn-ghost-filled2" %>
 					<% end %>

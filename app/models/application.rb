@@ -28,4 +28,12 @@ class Application < ApplicationRecord
   def self.policy_class
     AppsPolicy
   end
+
+  def name
+    favour.description
+  end
+
+  def amount_formatted
+    "+#{favour.favour_type.amount_available}"
+  end
 end
