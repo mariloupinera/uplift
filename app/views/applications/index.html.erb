@@ -7,7 +7,7 @@
         <div style="display:flex; justify-content:space-between">
           <div class="card-user-details">
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class= "avatar-rounded" alt="User profile picture">
-            <p class="user-name"><%= application.user.name %></p>
+            <p class="user-name text-center"><%= application.user.name %></p>
           </div>
           <div style="width:180px;">
             <p class= "favour-description" style="color:grey; top: 20px;"><%= application.user.name %> needs a favour</p>
@@ -29,6 +29,9 @@
         </div>
       </div>
       <%end %>
+      <%= link_to 'Confirm finished favours', favours_applications_path(@favour), class: "btn-ghost-filled2" %>
     </div>
+
+    
   </div>
 </div>

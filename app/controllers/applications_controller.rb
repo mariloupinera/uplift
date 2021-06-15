@@ -6,7 +6,8 @@ class ApplicationsController < ApplicationController
   end
 
   def index_done_applications
-    @appications = policy_scope(Application.includes(:user, :favour)).where(status: 0)
+    skip_authorization
+    @applications = policy_scope(Application.includes(:user, :favour)).where(status: 0)
   end
 
   def create
