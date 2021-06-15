@@ -1,0 +1,23 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-12" style="padding-top: 60px;">
+      <h2 class="text-center mb-3">CONFIRM APPLICATIONS</h2>
+      <% @applications.each do |application| %>
+      <div class="card-favour mb-4">
+        <div style="display:flex; justify-content:space-between">
+          <div class="card-user-details">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class= "avatar-rounded" alt="User profile picture">
+            <p class="user-name"><%= application.user.name %></p>
+          </div>
+          <div style="width:180px;">
+            <p class= "favour-description" style="color:grey; top: 20px;"><%= application.user.name %> needs a favour</p>
+            <p class= "favour-description" style="top:15px;"><%=application.favour.description%></p>
+          </div>  
+        </div>
+      </div>
+      <%= link_to 'Mark as done', mark_as_done_application_path(application), class: "btn-ghost-filled2" %>  
+      <%end %>
+				      
+    </div>
+  </div>
+</div>

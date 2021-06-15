@@ -7,28 +7,28 @@
       <h4 class="header-2 mb-3 pt-2 text-center"> ASK THE COMMUNITY </h4>
 
       <div class="ml-1 mr-1">
-        <%= simple_form_for(@favour) do |f| %>
+        <%= simple_form_for([@favour], remote: true) do |f| %>
 
         <%# <div class="form-inputs text-center">
           <%= f.input :title, label: 'What is the title of your favour?', placeholder: 'Eg : Plumbing in kitchen, Electrical light fittings' %>
         <%# </div>  %>
 
         <div class="form-inputs text-center">
-            <%= f.association :favour_type, collection: FavourType.all.map { |ft| [ft.content, ft.id] }, label: 'Choose your favour type'  %><br>
+            <%= f.association :favour_type, collection: FavourType.all.map { |ft| [ft.content, ft.id] }, label: 'Which Type of Favour You Need?'  %><br>
         </div>
 
         <div class="form-inputs text-center">
-          <%= f.input :duration, label: 'How much time would you need?', placeholder: 'Write the estimated number of hours' %><br>
-        </div>
-
-
-        <div class="form-inputs text-center">
-            <%= f.input :description, as: :text, input_html:{rows: 3}, label: 'Describe your favour' %><br>
+          <%= f.input :duration, label: 'How much time you need?', placeholder: 'Estimated Number of Hours/Days' %><br>
         </div>
 
 
         <div class="form-inputs text-center">
-            <%= f.input :zone, label: 'Which zone do you need the favour in?' %><br>
+            <%= f.input :description, as: :text, input_html:{rows: 3}, label: "Write Your Favour's Description below" %><br>
+        </div>
+
+
+        <div class="form-inputs text-center">
+            <%= f.input :zone, label: 'Please Specify Your Complete Address below', placeholder: 'street, zipcode, city, province, country' %><br>
         </div>
 
 
@@ -40,13 +40,10 @@
 
         <br>
 
-        <div class="button">
+
           <div class="row justify-content-center">
-
-          <p><%= f.submit "Submit", class: "btn-ghost-filled2" %></p>
-
+            <p><%= f.submit "Submit", class: "btn-ghost-filled2" %></p>
           </div>
-        </div>
         <% end %>
       </div>
     </div>

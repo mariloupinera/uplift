@@ -72,8 +72,17 @@ ActiveRecord::Schema.define(version: 2021_06_15_083201) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["favour_type_id"], name: "index_favours_on_favour_type_id"
     t.index ["user_id"], name: "index_favours_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "skills", force: :cascade do |t|

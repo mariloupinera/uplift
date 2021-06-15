@@ -9,5 +9,10 @@ class Favour < ApplicationRecord
 
 
 
+
+
+  geocoded_by :zone
+  after_validation :geocode, if: :will_save_change_to_zone?
+
 end
 
