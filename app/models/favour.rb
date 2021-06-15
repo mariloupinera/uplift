@@ -6,8 +6,5 @@ class Favour < ApplicationRecord
   validates :description, presence: true
   validates :zone, presence: true
   has_one_attached :photo
-
-
-
 end
 

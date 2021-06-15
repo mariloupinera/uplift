@@ -4,4 +4,8 @@ class CreditPolicy < ApplicationPolicy
       user.credits
     end
   end
+
+  def create?
+    true
+  end
 end
