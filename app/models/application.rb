@@ -1,7 +1,6 @@
 class Application < ApplicationRecord
   belongs_to :favour
   belongs_to :user
-  has_one :credit, dependent: :destroy
   enum status: [:accepted, :declined, :pending]
   enum done: [:completed, :incomplete]
   validate :application_cannot_be_completed_unless_accepted
@@ -26,5 +25,13 @@ class Application < ApplicationRecord
 
   def self.policy_class
     AppsPolicy
+  end
+
+  def name
+    favour.description
+  end
+
+  def amount_formatted
+    "+#{favour.favour_type.amount_available}"
   end
 end

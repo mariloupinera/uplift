@@ -1,7 +1,7 @@
 class CreditPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      user.credits
     end
   end
 end
