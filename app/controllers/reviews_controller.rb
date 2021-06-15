@@ -9,10 +9,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_strong_params)
     @application = Application.find(params[:application_id])
-    @review.application_id = @application.id
+    # @review.application_id = @application.id
 
     if @review.save
-      redirect_to review_path(@application)
+      redirect_to root_path
     else
       render :new
     end
