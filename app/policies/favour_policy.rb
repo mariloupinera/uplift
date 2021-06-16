@@ -14,6 +14,8 @@ class FavourPolicy < ApplicationPolicy
     true
   end
 
+
+
   def update?
     record.user == current_user
   end
