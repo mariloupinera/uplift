@@ -9,10 +9,16 @@ Rails.application.routes.draw do
       get 'mark_as_done'
       end
     end
-   end
+  end
+
   resources :applications, only: [:index] do
     resources :messages, only: [:create]
   end
-  resources :credits, only: [:index, :show]
-  get '/done_applications', to: 'applications#index_done_applications'
-end
+  resources :credits, only: [:index, :create] do
+    collection do
+      get :redeem
+      get :jobs
+    end
+  end  
+  get '/done_applications', to: 'applications#index_done_applications'  
+  end
