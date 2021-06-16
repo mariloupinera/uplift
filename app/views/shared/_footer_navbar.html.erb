@@ -1,6 +1,6 @@
 <div class="footer-navbar">
   <div class="row">
-    <div class="col-12 col-lg-12 col-sm-4 ">
+    <div class="col-12 col-lg-12 col-sm-4 position-static">
       <div class="footer-links">
         <a href="/"><i class="fas fa-home"></i></a>
 
@@ -8,23 +8,18 @@
 
         <a href="#"><i class="far fa-comments"></i></a>
 
-
         <a onclick= "togglePopUp()" ><i class="far fa-user"></i> 
           <div class="user-pop-up" id="user-pop-up">
             <div class="pop-up-text">
-                <li><i class="fas fa-user-edit p-2 mt-3"></i> My profile</li>
-                <li><i class="fas fa-book-open p-2"></i>My applications</li>
-                <li><i class="far fa-check-circle p-2"></i>Pending favours</li>
-                <li><i class="fas fa-check-circle p-2"></i>Confirm completed</li>
-                <%# <%= link_to 'Pending favours', mark_as_done_application_path(application)%> 
-                <%# <%= link_to 'Confirm completed',  done_applications_path %>
+            <ul>
+                <p class="mb-1 p-1"><i class="fas fa-user-edit p-1 mt-2"></i>  &nbsp  My profile</p>
+                <p class="mb-1 p-1"><i class="fas fa-book-open p-1" ></i> &nbsp  My favours</p>
+                <p class="mb-1 p-1"><i class="far fa-check-circle p-1" ></i>  &nbsp <%= link_to  'Pending favours', applications_path%> </p>
+                <p class="mb-1"><i class="fas fa-check-square p-1"></i></i>   &nbsp <%= link_to 'Confirm completed',  done_applications_path %></p>
+            </ul>
             </div>
-  
-          
           </div>
-        </a>
-
-              
+        </a>            
       </div>
     </div>
   </div>
@@ -37,14 +32,5 @@ function togglePopUp () {
 </script>
 
 
-<%# <ul>
-    <li><a href="#">Link 1</a></li>
-    <li><a href="#">Link 2</a></li>
-</ul> %>
-
-  <%# <li><a href="#">My profile</a></li>
-                <li><a href="/applications">My applications</a></li>
-                <li><a href="/mark_as_done_application">Pending favours</a> </li>
-                <li><a href="/done_applications">Confirm completed</li> %>
-
+<span class="border border-secondary"></span>
                 

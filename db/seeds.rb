@@ -33,7 +33,7 @@ p clerical = Skill.find_or_create_by(skill_type: 'clerical')
 # byebug
 p peter = User.new(name: 'Peter', address: '123 Street', email: 'peter@gmail.com', skills: [plumbing, gardening, clerical])
 peter.password = 'qwerty'
-peter.photo = '../assets/images/Profilepic5.jpg'
+# peter.photo = '../assets/images/Profilepic5.jpg'
 peter.save
 # p peter.errors.full_messages
 
