@@ -9,6 +9,9 @@ const initApplicationCable = () => {
       received(data) {
         messagesContainer.insertAdjacentHTML('beforeend', data);
         console.log(data); // called when data is broadcast in the cable
+        // NOTE: need to add javascript function to clear the message form when message is sent
+        // select the message input(document.querySelector)
+        // then set the value of the input to be an empty string
       },
     });
   }

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :user_skills, dependent: :destroy
   has_many :skills, through: :user_skills
   has_many :credits
+  has_one_attached :avatar
   # has_many :favour_applications, through: :favours, source: :applications
   validates :name, presence: true, uniqueness: true
   validates :address, presence: true
