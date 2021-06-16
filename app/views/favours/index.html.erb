@@ -1,25 +1,28 @@
 <div class="container-fluid mt-2">
   <div class="row">
     <div class="col-12" style="padding-top: 70px; overflow: scroll !important;">
-      <div style="position:relative">
+      <div style="position: relative;">
         <!-- <input type="text" placeholder="Search" class="position-search"> -->
+
+        <div id="map"
+           data-markers="<%= @markers.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+
+        <div class= "position-search">
         <%= form_tag favours_path, method: :get do %>
         <%= text_field_tag :query,
+        # Flat.near(user.current_zone, 1)
         params[:query],
-        class: "position-search",
-          placeholder: "Find a favour"
+          placeholder: "Search Location"
         %>
         <%#= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
       </div>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-
 
 
 
@@ -33,15 +36,22 @@
         <div style="display:flex; justify-content:space-between">
           <div class="card-user-details">
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class= "avatar-rounded" alt="User profile picture">
-            <p class="user-name"><%= favour.user.name %></p>
+            <p class="user-name text-center"><%= favour.user.name.capitalize %></p>
           </div>
-          <div style="width:180px">
-            <p class= "favour-description" style="color:grey";>Favour request:</p>
+          <div style="width:200px">
+            <p class= "favour-description mb-1"><%=favour.user.name.capitalize%> needs a favour!</p>
+            <p class= "favour-description mb-1">Favour type: <%=favour.favour_type.content%></p>
             <p class= "favour-description"><%=favour.description%></p>
           </div>
           <!-- <p class= "rating">4 stars</p> -->
         </div>
       </div>
+
+      <div class="ratings-favour-card">
+				<p class="m-0 justify-content-center"><%=favour.user.average_rating%>/5
+				  <%= image_tag('star.png', height: '12px',width: '14px') %></p>
+			</div>
+
       <%end %>
       <% end %>
     </div>

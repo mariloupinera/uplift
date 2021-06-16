@@ -1,13 +1,46 @@
 <div class="footer-navbar">
   <div class="row">
-    <div class="col-12 col-lg-12 col-sm-4 ">
+    <div class="col-12 col-lg-12 col-sm-4 position-static">
       <div class="footer-links">
         <a href="/"><i class="fas fa-home"></i></a>
+
         <a href="#"><i class="fas fa-coins"></i></a>
-        <a href="#"><i class="far fa-comments"></i></a>
-        <a href="/applications"><i class="far fa-user"></i></a>
+
+        <% if user_signed_in? %>
+          <%= link_to applications_path do %>
+          <i class="far fa-comments"></i>
+          <% end %>
+        <% else %>
+          <%= link to new_user_registration_path do%>
+          <i class="far fa-comments"></i>
+          <% end %>
+        <% end %>
+
+        <a onclick= "togglePopUp()" ><i class="far fa-user"></i>
+          <div class="user-pop-up" id="user-pop-up">
+        <a onclick= "togglePopUp()" ><i class="far fa-user"></i> 
+        </a> 
+        
       </div>
+
+      <div class="user-pop-up" id="user-pop-up">
+          <div class="pop-up-text">
+          <ul>
+              <p class="mb-1 p-1"><i class="fas fa-user-edit mt-2"></i> &nbsp &nbsp &nbsp My profile</p>
+              <p class="mb-1 p-1"><i class="fas fa-book-open"></i> &nbsp &nbsp &nbsp My favours</p>
+              <p class="mb-1 p-1"><i class="far fa-check-circle"></i> &nbsp &nbsp &nbsp  <%= link_to  'Pending favours', applications_path%> </p>
+              <p class="mb-1 p-1"><i class="fas fa-check-square"></i>  &nbsp &nbsp &nbsp <%= link_to 'Confirm completed',  done_applications_path %></p>
+          </ul>
+          </div>
+        </div>           
     </div>
   </div>
 </div>
+
+<script>
+function togglePopUp () {
+  document.getElementById("user-pop-up").classList.toggle("active")
+}
+</script>
+
 

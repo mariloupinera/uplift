@@ -2,16 +2,25 @@ class FavoursController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :new, :create]
 
    def index
+      @favours = Favour.all
+
     if params[:query].present?
       @favours = policy_scope(Favour.where("zone ILIKE ?", "%#{params[:query]}%"))
     else
       @favours = policy_scope(Favour.includes(:user))
     end
-   end
-
+    # the `geocoded` scope filters only favours with coordinates (latitude & longitude)
+    @markers = @favours.geocoded.map do |favour|
+      {
+        lat: favour.latitude,
+        lng: favour.longitude
+      }
+    end
+  end
 
   def show
     @favour = Favour.find(params[:id])
+    @markers = [{ lat: @favour.latitude, lng: @favour.longitude }]
     authorize(@favour)
   end
 
@@ -29,6 +38,9 @@ class FavoursController < ApplicationController
     else
       render :new
     end
+
+
+
   end
 
 

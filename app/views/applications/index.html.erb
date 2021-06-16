@@ -1,24 +1,29 @@
 <div class="container-fluid mt-3">
   <div class="row">
-    <div class="col-12" style="padding-top: 60px;">
+    <div class="col-12" style="padding-top: 60px">
       <h2 class="text-center mb-3">CONFIRM APPLICATIONS</h2>
       <% @applications.each do |application| %>
       <div class="card-favour mb-4">
-        <div style="display:flex; justify-content:space-between">
+        <div style="display:flex">
           <div class="card-user-details">
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class= "avatar-rounded" alt="User profile picture">
-            <p class="user-name"><%= application.user.name %></p>
+            <p class="user-name text-center"><%= application.user.name.capitalize %></p>
           </div>
           <div style="width:180px;">
-            <p class= "favour-description" style="color:grey; top: 20px;"><%= application.user.name %> needs a favour</p>
+            <p class= "favour-description" style="color:grey; top: 20px;"><%= application.user.name.capitalize %> needs a favour</p>
             <p class= "favour-description" style="top:15px;"><%=application.favour.description%></p>
           </div>
           <div style="display: inline; position: relative; bottom: -100px; right: 120px;width: 300px">
             <% if application.accepted? %>
-              <%= link_to 'Accepted', application_path(application, status: 0), method: :patch, class: "clicked btn-ghost-filled2"%>
+
+              <div class="mt-3">
+                <%= link_to 'Accepted', application_path(application, status: 0), method: :patch, class: "clicked btn-ghost-filled2"%>
+                <%= link_to 'Chat', application_path(application), class: "btn-ghost-filled2"%>
+              </div>
             <% elsif application.pending?%>
                <%= link_to 'Accept', application_path(application, status: 0), method: :patch, class: "btn-ghost-filled2" %>
              <% end %>
+
             <% if application.declined? %>
               <%= link_to 'Declined', application_path(application, status: 0), method: :patch, class: "clicked btn-ghost2"%>
             <% elsif application.pending? %>
@@ -29,6 +34,9 @@
         </div>
       </div>
       <%end %>
+      <%# <div class="text-center">
+        <%=# link_to 'Confirm completed',  done_applications_path, class: "btn-ghost2" %>
+      <%# </div>  %>
     </div>
   </div>
-</div>
+  </div>

@@ -1,0 +1,25 @@
+<div class="container-fluid messages" style="overflow: scroll;">
+  <div class="row">
+    <div class="col-12 col-lg-12 col-sm-4 mt-4" style="margin-right: 20px; margin-top: 60px !important;" >
+      <h4 class="header-2 mb-3 pt-2 text-center"> Let's Chat </h4>
+        <div class="ml-1 mr-1">
+          <% other_user = @application.user == current_user ? @application.favour.user : @application.user %>
+
+          <h2>I'm <%= other_user.name %></h2>
+          <div id="messages" data-application-id="<%= @application.id %>" style="margin-bottom: 100px;">
+
+            <% @application.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="chatform">
+  <%= simple_form_for [ @application, @message ], remote: true do |f| %>
+    <%= f.input :content, label: false, placeholder: "Chat with #{other_user.name}" %>
+    <%= f.submit :send, class: 'btn-ghost-filled2' %>
+  <% end %>
+</div>

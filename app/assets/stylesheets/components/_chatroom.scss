@@ -1,0 +1,28 @@
+.container-fluid.messages{
+  font-size: 14px;
+}
+
+.author {
+
+}
+
+.message {
+  background-color: #f4845f;
+  color: white;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.timestamp {
+  color: #E69597
+}
+
+.chatform {
+  padding-top: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 50px;
+  width: 100%;
+}

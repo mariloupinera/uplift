@@ -12,4 +12,12 @@ class AppsPolicy < ApplicationPolicy
   def update?
     record.favour.user == user
   end
+
+  def show?
+    record.favour.user == user || record.user == user
+  end
+  
+  def mark_as_done?
+    record.favour.user == user
+  end
 end

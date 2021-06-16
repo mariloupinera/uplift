@@ -1,50 +1,59 @@
+	<div style="overflow-scroll">
+		<div class="col-12 col-sm-4">
+			<div class="row">
+			<% photo_path =  @favour.photo.attached? ? cl_image_path(@favour.photo.key)  : image_path('Bathroom_1.png') %>
+				<div class="image-favour" style= "background-image: url(<%= photo_path %>)">
 
-<div class="homepagecontainer">
+				</div>
 
+				<div class="avatar-show-rounded">
+						<%= image_tag('Profile pic5.jpg', class:"rounded-circle",height: '80px',width: '80px') %>
+				</div>
 
+				<div class="user-name">
+				<h6><%= @favour.user.name.capitalize %></h6>
+				</div>
 
-	<div class="avatar-show-rounded">
-		<%# <% if @user.photo.attached?%>
-			<%# <%= cl_image_tag @user.photo.key%>
-		<%# <% else %>
-			<%# <%= image_tag('Bathroom_1.jpg') %>
-		<%# <% end %>
-	</div>
+				<%# <div class="favour-needed">
+				<%# <h6><%= @favour.user.name %>
+				<%# </div> %>
 
-	<div class="col-12 col-lg-12 col-sm-4">
+				<div class="ratings">
+					<p class="m-0 justify-content-center"><%=@favour.user.average_rating%>/5
+				    <%= image_tag('star.png', height: '16px',width: '18px') %></p>
+				</div>
 
-		<div class="">
-			<% if @favour.photo.attached?%>
-				<%= cl_image_tag @favour.photo.key%>
-			<% else %>
-				<%= image_tag('Bathroom_1.png', height: '300px',width: '400px') %>
-			<% end %>
+				<div class="text-box ml-3 mt-4" style="margin-right: 20px;">
+					<h5 class="mb-2" style="color:grey">I need help with <%=@favour.favour_type.content%></h5>
+						<%# <%= @favour.favour_type, collection: FavourType::TYPES %>
+
+					<p class="mb-1" style="color:grey"><strong>Duration: </strong>
+						<%= @favour.duration %></p>
+
+					<p class="mb-1" style="color:grey"><strong>Location: </strong>
+						<%= @favour.zone %></p>
+
+					<p class="mb-1" style="color:grey"><strong>Description: </strong>
+            <%= @favour.description %></p>
+				</div>
+
+			  <div id="map"
+           style="margin-left: 20px; margin-right: 20px; height: 145px; width: 100% !important; "
+           data-markers="<%= @markers.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        </div><br>
+
+				<div class="ml-3 mb-5 mt-5" style= "padding-left: 25px; display: initial;">
+					<% if user_signed_in? %>
+					<%= link_to 'Apply', favour_applications_path(@favour), method: :post, class: "btn-ghost-filled2" %>
+					<%= link_to 'Received applications', applications_path, class: "btn-ghost2" %>
+          <%# <%= link_to 'Confirm done', mark_as_done_application_path, class: "btn-ghost2" %>
+          <% else %>
+            <%= link_to 'Favours', favours_path, class: "btn-ghost-filled2" %>
+					<% end %>
+
+				</div>
+			</div>
+
 		</div>
-
-
-		<div class="text-box m-3 mt-5">
-		<br>
-			<h4> Plumbing </h4>
-				<%# <%= @favour.favour_type favour_type, collection: FavourType::TYPES %>
-			<p>
-				<strong>How much time is needed:</strong>
-				<%= @favour.duration %>
-			</p>
-
-			<p>
-				<strong>Location:</strong>
-				<%= @favour.zone %>
-			</p>
-
-			<p>
-				<%= @favour.description %>
-			</p>
-		</div>
 	</div>
-</div>
-
-<br>
-<% if user_signed_in? %>
-<%= link_to 'Apply', favour_applications_path(@favour), method: :post, class: "btn-ghost-filled2" %>
-<% end %>
-

@@ -1,14 +1,17 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # validates_uniqueness_of :username
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   has_many :applications, dependent: :destroy
+  has_many :reviews, through: :applications
   has_many :favours, dependent: :destroy
   has_many :user_skills, dependent: :destroy
   has_many :skills, through: :user_skills
   has_many :credits
+  has_one_attached :avatar
   # has_many :favour_applications, through: :favours, source: :applications
   validates :name, presence: true, uniqueness: true
   validates :address, presence: true
@@ -33,4 +36,12 @@ class User < ApplicationRecord
   def credit_redeemed
     credits.sum(:amount_redeemed)
   end
+
+  def average_rating
+    return nil if reviews.size == 0
+    reviews.sum(:rating)/reviews.size
+  end
+
+
+
 end
