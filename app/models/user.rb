@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :applications, dependent: :destroy
+  has_many :reviews, through: :applications
   has_many :favours, dependent: :destroy
   has_many :user_skills, dependent: :destroy
   has_many :skills, through: :user_skills
@@ -34,4 +35,12 @@ class User < ApplicationRecord
   def credit_redeemed
     credits.sum(:amount_redeemed)
   end
+
+  def average_rating
+    return nil if reviews.size == 0
+    reviews.sum(:rating)/reviews.size
+  end
+
+
+
 end
