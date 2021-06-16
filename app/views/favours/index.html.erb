@@ -25,11 +25,6 @@
 
 
 
-
-
-
-
-
 <div class="container-fluid mt-3">
   <div class="row">
     <div class="col-12">
@@ -39,16 +34,23 @@
       <div class="card-favour mb-4">
         <div style="display:flex; justify-content:space-between">
           <div class="card-user-details">
-            <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class= "avatar-rounded" alt="User profile picture"> %>
-            <p class="user-name"><%= favour.user.name %></p>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class= "avatar-rounded" alt="User profile picture">
+            <p class="user-name text-center"><%= favour.user.name.capitalize %></p>
           </div>
-          <div style="width:180px">
-            <p class= "favour-description" style="color:grey";>Favour request:</p>
+          <div style="width:200px">
+            <p class= "favour-description mb-1"><%=favour.user.name.capitalize%> needs a favour!</p>
+            <p class= "favour-description mb-1">Favour type: <%=favour.favour_type.content%></p>
             <p class= "favour-description"><%=favour.description%></p>
           </div>
           <!-- <p class= "rating">4 stars</p> -->
         </div>
       </div>
+
+      <div class="ratings-favour-card">
+				<p class="m-0 justify-content-center">4.5/5
+				  <%= image_tag('star.png', height: '12px',width: '14px') %></p>
+			</div>
+
       <%end %>
       <% end %>
     </div>

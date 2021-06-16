@@ -7,16 +7,19 @@
         <div style="display:flex; justify-content:space-between">
           <div class="card-user-details">
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class= "avatar-rounded" alt="User profile picture">
-            <p class="user-name text-center"><%= application.user.name %></p>
+            <p class="user-name text-center"><%= application.user.name.capitalize %></p>
           </div>
           <div style="width:180px;">
-            <p class= "favour-description" style="color:grey; top: 20px;"><%= application.user.name %> needs a favour</p>
+            <p class= "favour-description" style="color:grey; top: 20px;"><%= application.user.name.capitalize %> needs a favour</p>
             <p class= "favour-description" style="top:15px;"><%=application.favour.description%></p>
           </div>
           <div style="display: inline; position: relative; bottom: -100px; right: 120px;width: 300px">
             <% if application.accepted? %>
-              <%= link_to 'Accepted', application_path(application, status: 0), method: :patch, class: "clicked btn-ghost-filled2"%>
-            <% else application.pending?%>
+
+              <div class="mt-3">
+                <%= link_to 'Accepted', application_path(application, status: 0), method: :patch, class: "clicked btn-ghost-filled2"%>
+              </div>
+            <% elsif application.pending?%>
                <%= link_to 'Accept', application_path(application, status: 0), method: :patch, class: "btn-ghost-filled2" %>
              <% end %>
 
@@ -30,11 +33,9 @@
         </div>
       </div>
       <%end %>
-      <% if application_accepted? %>
-        <%= link_to 'Mark Favour as Done',  done_applications_path, class: "btn-ghost-filled2" %>
-      <% end %>
+      <div class="text-center">
+        <%= link_to 'Confirm completed',  done_applications_path, class: "btn-ghost2" %>
+      </div>
     </div>
-
-
   </div>
   </div>
