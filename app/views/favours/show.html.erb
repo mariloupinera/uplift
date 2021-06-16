@@ -23,17 +23,17 @@
 				    <%= image_tag('star.png', height: '16px',width: '18px') %></p>
 				</div>
 
-				<div class="text-box ml-3 mt-3" style="margin-right: 20px;">
-					<h4 class="mb-2">I need help with <%=@favour.favour_type.content%></h4>
+				<div class="text-box ml-3 mt-4" style="margin-right: 20px;">
+					<h5 class="mb-2" style="color:grey">I need help with <%=@favour.favour_type.content%></h5>
 						<%# <%= @favour.favour_type, collection: FavourType::TYPES %>
 
-					<p class="mb-1"><strong>Duration: </strong>
+					<p class="mb-1" style="color:grey"><strong>Duration: </strong>
 						<%= @favour.duration %></p>
 
-					<p class="mb-1"><strong>Location: </strong>
+					<p class="mb-1" style="color:grey"><strong>Location: </strong>
 						<%= @favour.zone %></p>
 
-					<p class="mb-1"><strong>Description: </strong>
+					<p class="mb-1" style="color:grey"><strong>Description: </strong>
             <%= @favour.description %></p>
 				</div>
 
