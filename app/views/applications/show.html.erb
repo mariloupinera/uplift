@@ -5,7 +5,6 @@
         <div class="ml-1 mr-1">
           <% other_user = @application.user == current_user ? @application.favour.user : @application.user %>
 
-          <h2>I'm <%= other_user.name %></h2>
           <div id="messages" data-application-id="<%= @application.id %>" style="margin-bottom: 100px;">
 
             <% @application.messages.each do |message| %>
