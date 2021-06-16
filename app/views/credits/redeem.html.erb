@@ -3,64 +3,28 @@
 <br>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12">
-      <h2 class="text-center mt-3">REDEEM CREDIT</h2>
-      <h5 class="text-center mt-3">Unlock one job post for 5 points</h5>
+    <div class="col-md-6 col-lg-4 col-xl-3 col-12">
+      <h2 class="text-center mt-3 mb-3">REDEEM CREDIT</h2>
+
       <br>
       <br>
-      <br>
-      <br>
-      <div style="display:flex; flex-wrap: wrap; justify-content: space-between; justify-content:  space-around; width: 350px;">
-        <%= link_to credits_path(:amount_redeemed => '5'), method: :post do %>
-          <%= image_tag "present.svg", class: "btn-ghost-filled2" %>
-          <p style="text-decoration: none;color:black; position:relative; left: 45px;">5</p>
+      <div class="redeem-outside-container">
+        <h5 class="text-center mt-3">Unlock one job post for 5 points</h5>
+        <br>
+        <div class="redeem-container">
+          <% 9.times do |n| %>
+            <%= link_to credits_path(:amount_redeemed => (n+1)*5), method: :post do %>
+            <%= image_tag "present.svg", class: "btn-ghost-filled2" %>
+            <p><%=(n+1)*5%></p>
         <% end %>
-
-        <%= link_to credits_path(:amount_redeemed => '10'), method: :post do %>
-          <%= image_tag "present.svg", class: "btn-ghost-filled2" %>
-          <p style="text-decoration: none; color:black;position:relative; left: 40px">10</p>
         <% end %>
-
-
-        <%= link_to credits_path(:amount_redeemed => '15'), method: :post do %>
-          <%= image_tag "present.svg", class: "btn-ghost-filled2" %>
-          <p style="text-decoration: none;color:black;position:relative; left: 40px">15</p>
-        <% end %>
-
-
-        <%= link_to credits_path(:amount_redeemed => '20'), method: :post do %>
-          <%= image_tag "present.svg", class: "btn-ghost-filled2" %>
-          <p style="text-decoration: none;color:black;position:relative; left: 40px">20</p>
-        <% end %>
-
-        <%= link_to credits_path(:amount_redeemed => '25'), method: :post do %>
-          <%= image_tag "present.svg", class: "btn-ghost-filled2" %>
-          <p style="text-decoration: none;color:black;position:relative; left: 40px">25</p>
-        <% end %>
-
-
-        <%= link_to credits_path(:amount_redeemed => '30'), method: :post do %>
-          <%= image_tag "present.svg", class: "btn-ghost-filled2" %>
-          <p style="text-decoration: none;color:black;position:relative; left: 40px">30</p>
-        <% end %>
-
-        <%= link_to credits_path(:amount_redeemed => '35'), method: :post do %>
-          <%= image_tag "present.svg", class: "btn-ghost-filled2" %>
-          <p style="text-decoration: none;color:black;position:relative; left: 40px">35</p>
-        <% end %>
-
-        <%= link_to credits_path(:amount_redeemed => '40'), method: :post do %>
-          <%= image_tag "present.svg", class: "btn-ghost-filled2" %>
-          <p style="text-decoration: none;color:black;position:relative; left: 40px">40</p>
-        <% end %>
-
-        <%= link_to credits_path(:amount_redeemed => '45'), method: :post do %>
-          <%= image_tag "present.svg", class: "btn-ghost-filled2" %>
-          <p style="text-decoration: none;color:black;position:relative; left: 40px">45</p>
-        <% end %>
-
       </div>
 
+      </div>
+      <br>
+      <div class="text-center">
+        <%= link_to 'Back to credits overview', credits_path, style: "color:grey; font-weight: bold;" %>
+      </div>
     </div>
   </div>
 </div>

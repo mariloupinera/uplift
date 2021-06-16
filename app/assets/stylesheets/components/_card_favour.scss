@@ -18,6 +18,21 @@ border-radius: 10px;
 // width:200px;
 }
 
+.card-paid-job {
+  background: #FFFFFF;
+border: 1px solid #D6CECE;
+height: 100px;
+// box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+display: flex;
+justify-content: space-between;
+width:90vw;
+padding: 15px;
+div{
+  width:60%;
+}
+}
+
 .card-user-details {
   position: relative;
   left:20px;
@@ -44,5 +59,55 @@ border-radius: 10px;
   border-radius: 50%;
   width: 56px;
 }
+
+// .gradient{
+// background-image: linear-gradient(257.36deg, rgba(16, 204, 227, 0.35) 22.49%, rgba(0, 0, 0, 0.3) 52.99%); image-ur
+// }
+
+.redeem-container {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  justify-content: space-around;
+  // justify-content:center;
+  width: 100%;
+  height: 50vh;
+  align-items: center;
+  padding: 10px;
+  // margin: 0 auto;
+
+  p{
+    text-decoration:none;
+    color:black;
+    text-align: center;
+    // display:flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    // justify-content: center;
+    // position: relative;
+    // left: 38px;
+    // display: block;
+    // padding: 5px;
+    // vertical-align: middle;
+  }
+
+  a{
+    width: 30%;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.redeem-outside-container {
+  border: 0.5px solid black;
+  border-radius: 20px;
+  height: 60vh;
+  width: 92vw;
+  // padding: 10px;
+  align-items:center;
+}
+
+
 
 
