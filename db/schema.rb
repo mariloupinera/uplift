@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_172349) do
+ActiveRecord::Schema.define(version: 2021_06_16_033838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 2021_06_15_172349) do
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "application_id", null: false
+    t.index ["application_id"], name: "index_reviews_on_application_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -134,6 +136,7 @@ ActiveRecord::Schema.define(version: 2021_06_15_172349) do
   add_foreign_key "favours", "users"
   add_foreign_key "messages", "applications"
   add_foreign_key "messages", "users"
+  add_foreign_key "reviews", "applications"
   add_foreign_key "user_skills", "skills"
   add_foreign_key "user_skills", "users"
 end
