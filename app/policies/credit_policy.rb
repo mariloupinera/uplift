@@ -8,4 +8,12 @@ class CreditPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def redeem?
+    true
+  end
+
+  def jobs?
+    true
+  end
 end

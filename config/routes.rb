@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     resources :applications, only: [:create, :edit, :update], shallow: true
     end
   resources :applications, only: [:index]
-  resources :credits, only: [:index, :show, :create]
+  resources :credits, only: [:index, :create] do
+    collection do
+      get :redeem
+      get :jobs
+    end
+  end
 end
 
