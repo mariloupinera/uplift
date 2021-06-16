@@ -16,12 +16,13 @@
           <div style="display: inline; position: relative; bottom: -100px; right: 120px;width: 300px">
             <% if application.accepted? %>
               <%= link_to 'Accepted', application_path(application, status: 0), method: :patch, class: "clicked btn-ghost-filled2"%>
-            <% elsif application.pending?%>
+            <% else application.pending?%>
                <%= link_to 'Accept', application_path(application, status: 0), method: :patch, class: "btn-ghost-filled2" %>
              <% end %>
+
             <% if application.declined? %>
               <%= link_to 'Declined', application_path(application, status: 0), method: :patch, class: "clicked btn-ghost2"%>
-            <% elsif application.pending? %>
+            <% else application.pending? %>
                <%= link_to 'Decline', application_path(application, status: 1), method: :patch, class: "btn-ghost2"%>
              <% end %>
           </div>
@@ -29,9 +30,11 @@
         </div>
       </div>
       <%end %>
-      <%= link_to 'Confirm finished favours',  done_applications_path, class: "btn-ghost-filled2" %>
+      <% if application_accepted? %>
+        <%= link_to 'Mark Favour as Done',  done_applications_path, class: "btn-ghost-filled2" %>
+      <% end %>
     </div>
 
-    
+
   </div>
   </div>

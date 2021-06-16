@@ -6,17 +6,24 @@
 
         <a href="#"><i class="fas fa-coins"></i></a>
 
-        <a href="#"><i class="far fa-comments"></i></a>
+        <% if user_signed_in? %>
+          <%= link_to applications_path do %>
+          <i class="far fa-comments"></i>
+          <% end %>
+        <% else %>
+          <%= link to new_user_registration_path do%>
+          <i class="far fa-comments"></i>
+          <% end %>
+        <% end %>
 
-
-        <a onclick= "togglePopUp()" ><i class="far fa-user"></i> 
+        <a onclick= "togglePopUp()" ><i class="far fa-user"></i>
           <div class="user-pop-up" id="user-pop-up">
-          
-          
+
+
           </div>
         </a>
 
-              
+
       </div>
     </div>
   </div>

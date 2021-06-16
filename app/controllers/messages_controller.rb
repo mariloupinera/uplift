@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @message.user = current_user
     authorize @application, :show?
     if @message.save
-       AplicationChannel.broadcast_to(@application, render_to_string(partial: "message", locals: { message: @message }))
+      ApplicationChannel.broadcast_to(@application, render_to_string(partial: "message", locals: { message: @message }))
       redirect_to application_path(@application, anchor: "message-#{@message.id}")
 
     else
