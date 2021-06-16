@@ -40,11 +40,7 @@ class FavoursController < ApplicationController
       render :new
     end
 
-
-
   end
-
-
 
   private
 

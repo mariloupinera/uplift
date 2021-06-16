@@ -12,7 +12,6 @@
         <div class= "position-search">
         <%= form_tag favours_path, method: :get do %>
         <%= text_field_tag :query,
-        # Flat.near(user.current_zone, 1)
         params[:query],
           placeholder: "Search Location"
         %>
