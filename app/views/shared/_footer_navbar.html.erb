@@ -19,18 +19,20 @@
         <a onclick= "togglePopUp()" ><i class="far fa-user"></i>
           <div class="user-pop-up" id="user-pop-up">
         <a onclick= "togglePopUp()" ><i class="far fa-user"></i> 
-          <div class="user-pop-up" id="user-pop-up">
-            <div class="pop-up-text">
-            <ul>
-                <p class="mb-1 p-1"><i class="fas fa-user-edit p-1 mt-2"></i>  &nbsp  My profile</p>
-                <p class="mb-1 p-1"><i class="fas fa-book-open p-1" ></i> &nbsp  My favours</p>
-                <p class="mb-1 p-1"><i class="far fa-check-circle p-1" ></i>  &nbsp <%= link_to  'Pending favours', applications_path%> </p>
-                <p class="mb-1"><i class="fas fa-check-square p-1"></i></i>   &nbsp <%= link_to 'Confirm completed',  done_applications_path %></p>
-            </ul>
-            </div>
-          </div>
-        </a>            
+        </a> 
+        
       </div>
+
+      <div class="user-pop-up" id="user-pop-up">
+          <div class="pop-up-text">
+          <ul>
+              <p class="mb-1 p-1"><i class="fas fa-user-edit mt-2"></i> &nbsp &nbsp &nbsp My profile</p>
+              <p class="mb-1 p-1"><i class="fas fa-book-open"></i> &nbsp &nbsp &nbsp My favours</p>
+              <p class="mb-1 p-1"><i class="far fa-check-circle"></i> &nbsp &nbsp &nbsp  <%= link_to  'Pending favours', applications_path%> </p>
+              <p class="mb-1 p-1"><i class="fas fa-check-square"></i>  &nbsp &nbsp &nbsp <%= link_to 'Confirm completed',  done_applications_path %></p>
+          </ul>
+          </div>
+        </div>           
     </div>
   </div>
 </div>
@@ -42,5 +44,3 @@ function togglePopUp () {
 </script>
 
 
-<span class="border border-secondary"></span>
-                

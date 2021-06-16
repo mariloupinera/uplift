@@ -32,35 +32,30 @@
 
 .user-pop-up {
   position:absolute;
-  font-size: 16px;
-  font-family: "Roboto";
   top: 100px;
   // left:-5px;
   right:5vw;
   width:90vw;
   height: 220px;
   transition: ease 300ms;
-  background-color: rgb(243, 240, 240);
-  border-style: solid !important;
-  border:1px black !important;
-  border-radius: 10px;
+  background-color: #fdfbfb;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(90, 88, 88, 0.15);
+  border: 1px solid #eec2c2;;
   &.active{
     top: -280px;
-    text-decoration: none;
   }
 }
 
 .pop-up-text {
-  font-size: 16px;
-  font-family: "Roboto";
-  color: rgb(0, 0, 0);
+  position: relative;
+  color: rgb(87, 87, 87);
   // font-weight: bold;
   padding: 5px;
   text-align: left;
-  &:hover {
-    text-decoration:none !important;
-    color:rgb(2, 2, 2);
-  }
+  font-size: 20px;
+  top:20px;
+
 }
 
 ul {
@@ -68,13 +63,13 @@ ul {
 }
 
 .user-pop-up i{
-  opacity: 0.6;
+  opacity: 0.5;
   color: #000000;
 }
 
 .pop-up-text a {
-  text-decoration: black;
-  color: rgb(0, 0, 0)!important;
+  text-decoration: rgb(87, 87, 87);
+  color: rgb(87, 87, 87)!important;
 }
 
 // #user-pop-up {
