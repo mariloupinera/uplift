@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Review.destroy_all
 Credit.destroy_all
 Application.destroy_all
 Favour.destroy_all
@@ -16,40 +16,64 @@ User.destroy_all
 
 # Skills
 
-p plumbing = Skill.find_or_create_by(skill_type: 'plumbing')
+p plumbing = Skill.find_or_create_by(skill_type: 'Plumbing')
 
-p gardening = Skill.find_or_create_by(skill_type: 'gardening')
+p gardening = Skill.find_or_create_by(skill_type: 'Gardening')
 
-p housekeeping = Skill.find_or_create_by(skill_type: 'housekeeping')
+p housekeeping = Skill.find_or_create_by(skill_type: 'Housekeeping')
 
-p accounting = Skill.find_or_create_by(skill_type: 'accounting')
+p accounting = Skill.find_or_create_by(skill_type: 'Accounting')
 
-p clerical = Skill.find_or_create_by(skill_type: 'clerical')
+p clerical = Skill.find_or_create_by(skill_type: 'Clerical')
+
+p painting = Skill.find_or_create_by(skill_type: 'Painting')
 
 
 
 # Users
 
 # byebug
-p peter = User.new(name: 'Peter', address: '123 Street, Amsterdam', email: 'peter@gmail.com', skills: [plumbing, gardening, clerical])
+
+p peter = User.new(name: 'Peter', address: '1076 CV Amsterdam', email: 'peter@gmail.com', skills: [plumbing, gardening, clerical])
+
 peter.password = 'qwerty'
-# peter.photo = '../assets/images/Profilepic5.jpg'
+file = URI.open('https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260')
+peter.avatar.attach(io: file, filename: 'Peter.jpg', content_type: 'image/jpg')
+
 peter.save
 # p peter.errors.full_messages
 
 
-p john = User.new(name: 'John', address: '124 Lane, Amsterdam', email: 'john@gmail.com', skills: [housekeeping, gardening])
+
+p john = User.new(name: 'John', address: '1091 GR Amsterdam', email: 'john@gmail.com', skills: [housekeeping, gardening])
+
 john.password = 'qwerty'
+file = URI.open('https://images.pexels.com/photos/3754208/pexels-photo-3754208.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+john.avatar.attach(io: file, filename: 'John.jpg', content_type: 'image/jpg')
+
 john.save
 
-p richard = User.new(name: 'Richard', address: '124 Lane, London', email: 'richard@gmail.com', skills: [accounting, clerical])
+
+p richard = User.new(name: 'Richard', address: '1012 PH Amsterdam', email: 'richard@gmail.com', skills: [accounting, clerical])
 richard.password = 'qwerty'
+file = URI.open('https://images.pexels.com/photos/5485840/pexels-photo-5485840.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+richard.avatar.attach(io: file, filename: 'Richard.jpg', content_type: 'image/jpg')
+
 richard.save
 
-p pierre = User.new(name: 'Pierre', address: '124 Tiny Lane, Rotterdam', email: 'pierre@gmail.com', skills: [accounting, clerical, gardening])
-pierre.password = 'qwerty'
-pierre.save
 
+p nancy = User.new(name: 'Nancy', address: '1016 GV Amsterdam', email: 'nancy@gmail.com', skills: [accounting, clerical, gardening])
+file = URI.open('https://images.pexels.com/photos/2726111/pexels-photo-2726111.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260')
+nancy.avatar.attach(io: file, filename: 'Nancy.jpg', content_type: 'image/jpg')
+nancy.password = 'qwerty'
+nancy.save
+
+
+p sally = User.new(name: 'Sally', address: '1016 GV Amsterdam', email: 'sally@gmail.com', skills: [accounting, clerical, gardening])
+file = URI.open('https://images.pexels.com/photos/4926674/pexels-photo-4926674.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+sally.avatar.attach(io: file, filename: 'sally.jpg', content_type: 'image/jpg')
+sally.password = 'qwerty'
+sally.save
 
 
 # Favour Types
@@ -74,6 +98,8 @@ clerical.save
 
 
 p plumbing_house = Favour.find_or_create_by(duration: 'one day', description: 'plumbing all my pipes', zone: 'Central', user: john, favour_type: plumbing)
+file = URI.open('https://www.jgbathrooms.com.au/wp-content/uploads/2020/08/Elanoragibson13.jpg')
+plumbing_house.photo.attach(io: file, filename: 'bathroom.jpg', content_type: 'image/jpg')
 plumbing_house.save
 
 # plumbing_house.favour_type = plumbing
@@ -82,38 +108,45 @@ p plumbing_house.errors.full_messages
 
 
 p gardening_house = Favour.find_or_create_by(duration: 'one day', description: 'tending to my garden', zone: 'Spaarne 16, 2011 CH Haarlem, Netherlands', user: peter, favour_type: gardening)
+file = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStB0Tsa1IxVbv9jPYyW2FfyDarzAM8jRZQSA&usqp=CAU')
+gardening_house.photo.attach(io: file, filename: 'garden.jpg', content_type: 'image/jpg')
 gardening_house.save
 
 p tax_returns = Favour.find_or_create_by(duration: 'one week', description: 'Someone to work on my tax returns', zone: 'amsterdam', user: richard, favour_type: financial)
+file = URI.open('https://www.aseanbriefing.com/news/wp-content/uploads/2019/10/Personal-Income-Tax-for-Expatriates-in-Indonesia.jpg')
+tax_returns.photo.attach(io: file, filename: 'tax.jpg', content_type: 'image/jpg')
 tax_returns.save
 
-p admin_work = Favour.find_or_create_by(duration: 'one week', description: 'A temporary secretary to make my life easier', zone: 'West', user: pierre, favour_type: clerical)
+p admin_work = Favour.find_or_create_by(duration: 'one week', description: 'A temporary secretary to make my life easier', zone: 'West', user: nancy, favour_type: clerical)
+file = URI.open('https://www.aseanbriefing.com/news/wp-content/uploads/2019/10/Personal-Income-Tax-for-Expatriates-in-Indonesia.jpg')
+admin_house.photo.attach(io: file, filename: 'admin.jpg', content_type: 'image/jpg')
 admin_work.save
-
-
-
 
 
 # Applications
 
-p application_1 = Application.find_or_create_by(content: 'Would be great to get this task', status: 'accepted', done: 'completed', favour: plumbing_house, user: peter)
+p application_1 = Application.find_or_create_by(content: 'Would be great to get this task', status: 'accepted', done: 'completed', favour: plumbing_house, user: nancy)
+application_1.reviews.create(rating: 5, content: 'A skilled person and friendly')
 application_1.save
+
 p application_1.errors.full_messages
 
 p application_2 = Application.find_or_create_by(content: 'Would be great to perform this task. Lots of relevant experience.', status: 'pending', done: 'incomplete', favour: gardening_house, user: john)
+application_2.reviews.create(rating: 4, content: 'Did a very good job!')
 application_2.save
 p application_2.errors.full_messages
 
 p application_3 = Application.find_or_create_by(content: 'Experience of 4 years. Would be great to connect!', status: 'declined', done: 'incomplete', favour: plumbing_house, user: peter)
+application_3.reviews.create(rating: 4, content: 'Excellent work, really reommend.')
 application_3.save
 p application_3.errors.full_messages
 
-p application_4 = Application.find_or_create_by(content: 'Experience of 10 years. Would be great to work together!', status: 'declined', done: 'incomplete', favour: plumbing_house, user: peter)
+p application_4 = Application.find_or_create_by(content: 'Experience of 10 years. Would be great to work together!', status: 'declined', done: 'incomplete', favour: plumbing_house, user: sally)
+application_4.reviews.create(rating: 5, content: 'Good job, really reommend.')
 application_4.save
 p application_4.errors.full_messages
-p application_4.errors.full_messages
 
-p application_5 = Application.find_or_create_by(content: 'Experience of 10 years. Would be great to work together!', status: 'accepted', done: 'completed', favour: admin_work, user: peter)
+p application_5 = Application.find_or_create_by(content: 'Experience of 10 years. Would be great to work together!', status: 'accepted', done: 'completed', favour: admin_work, user: richard)
 application_5.save
 
 
@@ -129,7 +162,9 @@ credit_2.save
 p credit_3 = Credit.find_or_create_by(amount_redeemed: 0, user: richard)
 credit_3.save
 
-p credit_4 = Credit.find_or_create_by(amount_redeemed: 0, user: pierre)
+p credit_4 = Credit.find_or_create_by(amount_redeemed: 0, user: nancy)
 credit_4.save
+
+
 
 
