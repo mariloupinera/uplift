@@ -1,17 +1,17 @@
 <div class="container-fluid mt-3">
   <div class="row">
     <div class="col-12" style="padding-top: 60px">
-      <h2 class="text-center mb-3 mt-3">Confirm applications</h2>
+      <h2 class="text-center mb-3 mt-3">Confirm Applications</h2>
       <% @applications.each do |application| %>
       <div class="card-favour mb-4">
         <div style="display:flex">
           <div class="card-user-details">
             <%= user_avatar(application.user, class: "avatar-rounded", height: 50, width: 50) %>
-            <p class="user-name text-center"><%= application.user.name.capitalize %></p>
+            <p class="user-name text-center"><%= application.user.name.capitalize! %></p>
           </div>
           <div style="width:180px;">
-            <p class= "favour-description" style="color:grey; top: 20px;"><%= application.user.name.capitalize %> needs a favour</p>
-            <p class= "favour-description" style="top:15px;"><%=application.favour.description.truncate(27, separator: /\s/)%></p>
+            <p class= "favour-description" style="color:grey; top: 20px;"><%= application.user.name.capitalize! %> needs a favour</p>
+            <p class= "favour-description" style="top:15px;"><%=application.favour.description.truncate.capitalize!(27, separator: /\s/)%></p>
           </div>
           <div style="display: inline; position: relative; bottom: -100px; right: 120px;width: 300px">
             <% if application.accepted? %>

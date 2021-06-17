@@ -18,7 +18,7 @@
 
  <div class="chatform">
   <%= simple_form_for [ @application, @message ], remote: true do |f| %>
-    <%= f.input :content, label: false, placeholder: "Chat with #{other_user.name}" %>
+    <%= f.input :content, label: false, placeholder: "Chat with #{other_user.name.capitalize}" %>
     <%= f.submit :send, class: 'btn-ghost-filled2' %>
   <% end %>
 </div>

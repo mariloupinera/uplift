@@ -2,11 +2,11 @@
 <div class="message-container" id="message-<%= message.id %>">
 
   <i class="author"><br>
-    <span><%= message.user.name %></span>
+    <span><%= message.user.name.capitalize %></span>
   </i>
 
   <div class="message">
-    <p><%= message.content %></p>
+    <p><%= message.content.capitalize %></p>
   </div>
 
   <div class="timestamp" style="font-size: 10px;">
