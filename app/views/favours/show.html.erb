@@ -7,7 +7,7 @@
 				</div>
 
 				<div class="avatar-show-rounded">
-						<%= image_tag('Profile pic5.jpg', class:"rounded-circle",height: '80px',width: '80px') %>
+						<%= user_avatar(@favour.user, class: "rounded-circle avatar-img", height: 60, width: 60) %>
 				</div>
 
 				<div class="user-name">
@@ -33,8 +33,8 @@
 					<p class="mb-1" style="color:grey"><strong>Location: </strong>
 						<%= @favour.zone %></p>
 
-					<p class="mb-1" style="color:grey"><strong>Description: </strong>
-            <%= @favour.description %></p>
+					<p class="mb-1" style="color:grey"><strong>About: </strong>
+            <%= @favour.description.capitalize %></p>
 				</div>
 
 			  <div id="map"
@@ -45,11 +45,13 @@
 
 				<div class="mb-5 mt-5" style= "display: initial; ">
 					<% if user_signed_in? %>
+
 					 <%= link_to 'Apply', favour_applications_path(@favour), method: :post, class: "btn-ghost-filled2" if @favour.user != current_user %>
 					 <%= link_to 'Received applications', applications_path, class: "btn-ghost2" %>
+
           <%# <%= link_to 'Confirm done', mark_as_done_application_path, class: "btn-ghost2" %>
           <% else %>
-            <%= link_to 'Favours', favours_path, class: "btn-ghost-filled2" %>
+           		<%= link_to 'Favours', favours_path, class: "btn-ghost-filled2" %>
 					<% end %>
 
 				</div>

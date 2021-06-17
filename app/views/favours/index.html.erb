@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-12" style="padding-top: 70px; overflow: scroll !important;">
       <div style="position: relative;">
-        <!-- <input type="text" placeholder="Search" class="position-search"> -->
 
         <div id="map"
            data-markers="<%= @markers.to_json %>"
@@ -15,7 +14,6 @@
         params[:query],
           placeholder: "Search Location"
         %>
-        <%#= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
       </div>
       </div>
@@ -23,26 +21,25 @@
   </div>
 </div>
 
-
-
 <div class="container-fluid mt-3">
   <div class="row">
     <div class="col-12">
-      <h2 class="text-center mb-3">RECOMMENDED</h2>
+      <h2 class="text-center mb-3">Available favours</h2>
       <% @favours.each do |favour| %>
       <%= link_to favour_path(favour), style: "color: black;" do  %>
       <div class="card-favour mb-4">
-        <div style="display:flex; justify-content:space-between">
+        <div style="display:flex; justify-content:">
           <div class="card-user-details">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class= "avatar-rounded" alt="User profile picture">
-            <p class="user-name text-center"><%= favour.user.name.capitalize %></p>
+            <div class="avatar-rounded">
+                <%= user_avatar(favour.user, class: "rounded-circle avatar-img", height: 50, width: 50) %>
+            </div>
+            <p class="user-name text-center"><%=favour.user.name.capitalize %></p>
           </div>
           <div style="width:200px">
             <p class= "favour-description mb-1"><%=favour.user.name.capitalize%> needs a favour!</p>
-            <p class= "favour-description mb-1">Favour type: <%=favour.favour_type.content%></p>
-            <p class= "favour-description"><%=favour.description%></p>
+            <p class= "favour-description mb-1"><strong>Favour type: <%=favour.favour_type.content%></strong></p>
+            <p class= "favour-description mb-1"><%=favour.description.capitalize.truncate(27, separator: /\s/)%></p>
           </div>
-          <!-- <p class= "rating">4 stars</p> -->
         </div>
       </div>
 
@@ -52,7 +49,7 @@
 			</div>
 
       <%end %>
-      <% end %>
+    <% end %>
     </div>
   </div>
 </div>

@@ -2,29 +2,27 @@
   <%= link_to root_path, class: "navbar-brand" do %>
     <h6><%= image_tag "upliftlogo.png" %> UpLift </h6>
     <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <% if user_signed_in? %>
+      <div   data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <%= user_avatar(current_user, class: "rounded-circle avatar-img", height: 40, width: 40) %>
+      </div>
+    <% else %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="avatar dropdown-toggle"></span>
+      </button>
+    <% end %>
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-
-        <li class="nav-item">
-          <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%#= link_to "Action", "#", class: "dropdown-item" %>
-
-          </div>
-        </li>
+        <%= current_user.name %>
+        <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <%#= link_to "Edit My Profile", edit_user_registration_path, method: :delete, class: "dropdown-item" %>
+        <%#= link_to "Update My Password", edit_user_password_path, method: :delete, class: "dropdown-item" %>
       <% else %>
         <div class="nav-item p-2 m-2 w-120 text-center">
           <li><%= link_to "Sign-up", new_user_registration_path, class: "btn-ghost2" %></li>
-
           <li class ="mt-4"> <%= link_to "Log in", new_user_session_path, class: "btn-ghost-filled2" %></li>
         </div>
       <% end %>
