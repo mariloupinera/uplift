@@ -28,7 +28,7 @@
       <% @favours.each do |favour| %>
       <%= link_to favour_path(favour), style: "color: black;" do  %>
       <div class="card-favour mb-4">
-        <div>
+        <div style="display:flex; justify-content:">
           <div class="card-user-details">
             <%= user_avatar(favour.user, class: "rounded-circle avatar-img", height: 60, width: 60) %>
             <p class="user-name text-center"><%= favour.user.name.capitalize %></p>
