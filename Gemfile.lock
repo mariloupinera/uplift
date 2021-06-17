@@ -102,9 +102,6 @@ GEM
     geocoder (1.6.7)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    gravatar-ultimate (2.0.0)
-      activesupport (>= 2.3.14)
-      rack
     gravatar_image_tag (1.2.0)
     http-accept (1.7.0)
     http-cookie (1.0.3)
@@ -278,7 +275,6 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-sass
   geocoder
-  gravatar-ultimate (~> 2.0)
   gravatar_image_tag
   jbuilder (~> 2.7)
   launchy
