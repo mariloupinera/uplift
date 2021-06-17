@@ -33,7 +33,9 @@ p painting = Skill.find_or_create_by(skill_type: 'Painting')
 # Users
 
 # byebug
+
 p peter = User.new(name: 'Peter', address: '1076 CV Amsterdam', email: 'peter@gmail.com', skills: [plumbing, gardening, clerical])
+
 peter.password = 'qwerty'
 file = URI.open('https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260')
 peter.avatar.attach(io: file, filename: 'Peter.jpg', content_type: 'image/jpg')
@@ -42,12 +44,15 @@ peter.save
 # p peter.errors.full_messages
 
 
+
 p john = User.new(name: 'John', address: '1091 GR Amsterdam', email: 'john@gmail.com', skills: [housekeeping, gardening])
+
 john.password = 'qwerty'
 file = URI.open('https://images.pexels.com/photos/3754208/pexels-photo-3754208.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
 john.avatar.attach(io: file, filename: 'John.jpg', content_type: 'image/jpg')
 
 john.save
+
 
 p richard = User.new(name: 'Richard', address: '1012 PH Amsterdam', email: 'richard@gmail.com', skills: [accounting, clerical])
 richard.password = 'qwerty'
@@ -56,11 +61,13 @@ richard.avatar.attach(io: file, filename: 'Richard.jpg', content_type: 'image/jp
 
 richard.save
 
+
 p nancy = User.new(name: 'Nancy', address: '1016 GV Amsterdam', email: 'nancy@gmail.com', skills: [accounting, clerical, gardening])
 file = URI.open('https://images.pexels.com/photos/2726111/pexels-photo-2726111.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260')
 nancy.avatar.attach(io: file, filename: 'Nancy.jpg', content_type: 'image/jpg')
 nancy.password = 'qwerty'
 nancy.save
+
 
 p sally = User.new(name: 'Sally', address: '1016 GV Amsterdam', email: 'sally@gmail.com', skills: [accounting, clerical, gardening])
 file = URI.open('https://images.pexels.com/photos/4926674/pexels-photo-4926674.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')

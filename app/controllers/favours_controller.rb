@@ -5,9 +5,9 @@ class FavoursController < ApplicationController
       @favours = Favour.all
 
     if params[:query].present?
-      @favours = Favour.near(params[:query])
+      @favours = Favour.near(params[:query], 1000)
     elsif current_user
-      @favours = Favour.near(current_user.address)
+      @favours = Favour.near(current_user.address, 1000)
     end
     @favours = policy_scope(@favours)
     # the `geocoded` scope filters only favours with coordinates (latitude & longitude)

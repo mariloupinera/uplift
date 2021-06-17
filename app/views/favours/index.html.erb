@@ -30,7 +30,9 @@
       <div class="card-favour mb-4">
         <div style="display:flex; justify-content:">
           <div class="card-user-details">
-              <%= user_avatar(favour.user, class: "rounded-circle avatar-img", height: 50, width: 50) %>
+            <div class="avatar-rounded">
+                <%= user_avatar(favour.user, class: "rounded-circle avatar-img", height: 50, width: 50) %>
+            </div>
             <p class="user-name text-center"><%=favour.user.name.capitalize %></p>
           </div>
           <div style="width:200px">

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get :redeem
       get :jobs
     end
-  end  
-  get '/done_applications', to: 'applications#index_done_applications'  
+  end
+  get '/done_applications', to: 'applications#index_done_applications'
+  get "/my_applications", to: "applications#my_applications"
   end
