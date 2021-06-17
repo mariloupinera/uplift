@@ -6,7 +6,7 @@
       <div class="card-favour mb-4">
         <div style="display:flex">
           <div class="card-user-details">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class= "avatar-rounded" alt="User profile picture">
+            <%= user_avatar(application.user, class: "avatar-rounded", height: 50, width: 50) %>
             <p class="user-name text-center"><%= application.user.name.capitalize %></p>
           </div>
           <div style="width:180px;">

@@ -53,6 +53,11 @@ class ApplicationsController < ApplicationController
     authorize @application
   end
 
+  def my_applications
+    skip_authorization
+    @applications = current_user.applications
+  end
+
   private
 
   # def application_params
