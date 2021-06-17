@@ -1,7 +1,9 @@
 module ApplicationHelper
-  def user_avatar(user, size=40)
+  def user_avatar(user, options = { height: 40, width: 40 })
     if user.avatar.attached?
-      user.avatar.variant(resize: "#{size}x#{size}!")
+      cl_image_tag user.avatar.key, options
+    else
+      image_tag "useravatar.png", options
     end
   end
 end
