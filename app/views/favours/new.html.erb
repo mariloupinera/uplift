@@ -14,23 +14,20 @@
         <%# </div>  %>
 
         <div class="form-inputs text-center">
-            <%= f.association :favour_type, collection: FavourType.all.map { |ft| [ft.content, ft.id] }, label: 'Which Type of Favour You Need?'  %><br>
+          <%= f.association :favour_type, collection: FavourType.all.map { |ft| [ft.content, ft.id] }, label: 'Which type of favour would you need?'  %><br>
         </div>
 
         <div class="form-inputs text-center">
-          <%= f.input :duration, label: 'How much time you need?', placeholder: 'Estimated Number of Hours/Days' %><br>
+          <%= f.input :duration, label: 'How much time you need?', placeholder: 'Estimated number of hours/days' %><br>
         </div>
-
 
         <div class="form-inputs text-center">
-            <%= f.input :description, as: :text, input_html:{rows: 3}, label: "Write Your Favour's Description below" %><br>
+          <%= f.input :description, as: :text, input_html:{rows: 3}, label: "Write your favour's escription below" %><br>
         </div>
-
 
         <div class="form-inputs text-center">
-            <%= f.input :zone, label: 'Please Specify Your Complete Address below', placeholder: 'street, zipcode, city, province, country' %><br>
+          <%= f.input :zone, label: 'Please specify your complete address below', placeholder: 'street, zipcode, city, province, country' %><br>
         </div>
-
 
         <div class="favour-image d-flex justify-content-center">
           <div class="w-75 text-center">
@@ -39,8 +36,6 @@
         </div>
 
         <br>
-
-
           <div class="row justify-content-center">
             <p><%= f.submit "Post favour", class: "btn-ghost-filled2" %></p>
           </div>
@@ -49,23 +44,3 @@
     </div>
   </div>
   </div>
-
-
-
-<%# <%= simple_form_for @user do |f| %>
-  <%# <%= f.input :username, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
-  <%# <%= f.input :password, hint: 'No special characters.' %>
-  <%# <%= f.input :email, placeholder: 'user@domain.com' %>
-  <%# <%= f.input :remember_me, inline_label: 'Yes, remember me' %>
-  <%# <%= f.button :submit %>
-<%# <% end %>
-
-
-<%# :label         # The <label> tag alone
-:input         # The <input> tag alone
-:label_input   # The <label> and the <input> tags
-:hint          # The hint for the input %>
-<%# :error         # The error for the input %>
-
- <%# <%= f.input :title, placeholder: 'What is the title of your favour?',hint: 'Eg : Plumbing in kitchen, Electrical light fittings.' %>
-

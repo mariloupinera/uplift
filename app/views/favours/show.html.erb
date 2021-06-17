@@ -33,8 +33,8 @@
 					<p class="mb-1" style="color:grey"><strong>Location: </strong>
 						<%= @favour.zone %></p>
 
-					<p class="mb-1" style="color:grey"><strong>Description: </strong>
-            <%= @favour.description %></p>
+					<p class="mb-1" style="color:grey"><strong>About: </strong>
+            <%= @favour.description.capitalize %></p>
 				</div>
 
 			  <div id="map"
@@ -45,11 +45,11 @@
 
 				<div class="ml-3 mb-5 mt-5" style= "padding-left: 25px; display: initial;">
 					<% if user_signed_in? %>
-					<%= link_to 'Apply', favour_applications_path(@favour), method: :post, class: "btn-ghost-filled2" %>
-					<%= link_to 'Received applications', applications_path, class: "btn-ghost2" %>
+						<%= link_to 'Apply', favour_applications_path(@favour), method: :post, class: "btn-ghost-filled2" %>
+						<%= link_to 'Received applications', applications_path, class: "btn-ghost2" %>
           <%# <%= link_to 'Confirm done', mark_as_done_application_path, class: "btn-ghost2" %>
           <% else %>
-            <%= link_to 'Favours', favours_path, class: "btn-ghost-filled2" %>
+           		<%= link_to 'Favours', favours_path, class: "btn-ghost-filled2" %>
 					<% end %>
 
 				</div>
