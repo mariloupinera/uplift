@@ -31,22 +31,22 @@ p clerical = Skill.find_or_create_by(skill_type: 'clerical')
 # Users
 
 # byebug
-p peter = User.new(name: 'Peter', address: '123 Street', email: 'peter@gmail.com', skills: [plumbing, gardening, clerical])
+p peter = User.new(name: 'Peter', address: '123 Street, Amsterdam', email: 'peter@gmail.com', skills: [plumbing, gardening, clerical])
 peter.password = 'qwerty'
 # peter.photo = '../assets/images/Profilepic5.jpg'
 peter.save
 # p peter.errors.full_messages
 
 
-p john = User.new(name: 'John', address: '124 Lane', email: 'john@gmail.com', skills: [housekeeping, gardening])
+p john = User.new(name: 'John', address: '124 Lane, Amsterdam', email: 'john@gmail.com', skills: [housekeeping, gardening])
 john.password = 'qwerty'
 john.save
 
-p richard = User.new(name: 'Richard', address: '124 Lane', email: 'richard@gmail.com', skills: [accounting, clerical])
+p richard = User.new(name: 'Richard', address: '124 Lane, London', email: 'richard@gmail.com', skills: [accounting, clerical])
 richard.password = 'qwerty'
 richard.save
 
-p pierre = User.new(name: 'Pierre', address: '124 Tiny Lane', email: 'pierre@gmail.com', skills: [accounting, clerical, gardening])
+p pierre = User.new(name: 'Pierre', address: '124 Tiny Lane, Rotterdam', email: 'pierre@gmail.com', skills: [accounting, clerical, gardening])
 pierre.password = 'qwerty'
 pierre.save
 
