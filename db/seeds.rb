@@ -107,19 +107,19 @@ plumbing_house.save
 p plumbing_house.errors.full_messages
 
 
-p gardening_house = Favour.find_or_create_by(duration: 'one day', description: 'tending to my garden', zone: 'Spaarne 16, 2011 CH Haarlem, Netherlands', user: peter, favour_type: gardening)
+p gardening_house = Favour.find_or_create_by(duration: '4 hours', description: 'Tending to my garden', zone: '2011 CH Haarlem, Netherlands', user: peter, favour_type: gardening)
 file = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStB0Tsa1IxVbv9jPYyW2FfyDarzAM8jRZQSA&usqp=CAU')
 gardening_house.photo.attach(io: file, filename: 'garden.jpg', content_type: 'image/jpg')
 gardening_house.save
 
-p tax_returns = Favour.find_or_create_by(duration: 'one week', description: 'Someone to work on my tax returns', zone: 'amsterdam', user: richard, favour_type: financial)
+p tax_returns = Favour.find_or_create_by(duration: '5 hours', description: 'Someone to work on my tax returns', zone: '1012 PH Amsterdam', user: richard, favour_type: financial)
 file = URI.open('https://www.aseanbriefing.com/news/wp-content/uploads/2019/10/Personal-Income-Tax-for-Expatriates-in-Indonesia.jpg')
 tax_returns.photo.attach(io: file, filename: 'tax.jpg', content_type: 'image/jpg')
 tax_returns.save
 
-p admin_work = Favour.find_or_create_by(duration: 'one week', description: 'A temporary secretary to make my life easier', zone: 'West', user: nancy, favour_type: clerical)
+p admin_work = Favour.find_or_create_by(duration: '2 hours', description: 'A temporary secretary to make my life easier', zone: '1012 PH Amsterdam', user: nancy, favour_type: clerical)
 file = URI.open('https://www.aseanbriefing.com/news/wp-content/uploads/2019/10/Personal-Income-Tax-for-Expatriates-in-Indonesia.jpg')
-admin_house.photo.attach(io: file, filename: 'admin.jpg', content_type: 'image/jpg')
+admin_work.photo.attach(io: file, filename: 'admin.jpg', content_type: 'image/jpg')
 admin_work.save
 
 
@@ -127,27 +127,33 @@ admin_work.save
 
 p application_1 = Application.find_or_create_by(content: 'Would be great to get this task', status: 'accepted', done: 'completed', favour: plumbing_house, user: nancy)
 application_1.reviews.create(rating: 5, content: 'A skilled person and friendly')
+application_1.reviews.create(rating: 4, content: 'Great person and friendly')
+application_1.reviews.create(rating: 5, content: 'Hardworking person')
 application_1.save
-
 p application_1.errors.full_messages
 
-p application_2 = Application.find_or_create_by(content: 'Would be great to perform this task. Lots of relevant experience.', status: 'pending', done: 'incomplete', favour: gardening_house, user: john)
-application_2.reviews.create(rating: 4, content: 'Did a very good job!')
+p application_2 = Application.find_or_create_by(content: 'Would be great to perform this task. Lots of relevant experience.', status: 'accepted', done: 'completed', favour: gardening_house, user: john)
+application_2.reviews.create(rating: 5, content: 'Good job, really reommend.')
+application_2.reviews.create(rating: 5, content: 'Excellent work, really reommend.')
+application_2.reviews.create(rating: 5, content: 'Excellent work, really reommend.')
 application_2.save
 p application_2.errors.full_messages
 
-p application_3 = Application.find_or_create_by(content: 'Experience of 4 years. Would be great to connect!', status: 'declined', done: 'incomplete', favour: plumbing_house, user: peter)
-application_3.reviews.create(rating: 4, content: 'Excellent work, really reommend.')
+p application_3 = Application.find_or_create_by(content: 'Experience of 4 years. Would be great to connect!', status: 'accepted', done: 'completed', favour: plumbing_house, user: peter)
+application_3.reviews.create(rating: 3, content: 'Bad work, do not reommend.')
 application_3.save
 p application_3.errors.full_messages
 
-p application_4 = Application.find_or_create_by(content: 'Experience of 10 years. Would be great to work together!', status: 'declined', done: 'incomplete', favour: plumbing_house, user: sally)
+p application_4 = Application.find_or_create_by(content: 'Experience of 10 years. Would be great to work together!', status: 'accepted', done: 'completed', favour: plumbing_house, user: sally)
 application_4.reviews.create(rating: 5, content: 'Good job, really reommend.')
 application_4.save
 p application_4.errors.full_messages
 
 p application_5 = Application.find_or_create_by(content: 'Experience of 10 years. Would be great to work together!', status: 'accepted', done: 'completed', favour: admin_work, user: richard)
+application_5.reviews.create(rating: 5, content: 'Good job, really reommend.')
+application_5.reviews.create(rating: 4, content: 'Excellent work, really reommend.')
 application_5.save
+p application_5.errors.full_messages
 
 
 # Credits
