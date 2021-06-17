@@ -1,16 +1,16 @@
 <div class="container-fluid mt-3">
   <div class="row">
     <div class="col-12" style="padding-top: 60px">
-      <h2 class="text-center mb-3 mt-3">Confirm applications</h2>
+      <h2 class="text-center mb-3 mt-3">My applications</h2>
       <% @applications.each do |application| %>
       <div class="card-favour mb-4">
         <div style="display:flex">
           <div class="card-user-details">
-            <%= user_avatar(application.user, class: "avatar-rounded", height: 50, width: 50) %>
-            <p class="user-name text-center"><%= application.user.name.capitalize %></p>
+            <%= user_avatar(application.favour.user, class: "avatar-rounded", height: 50, width: 50) %>
+            <p class="user-name text-center"><%= application.favour.user.name.capitalize %></p>
           </div>
           <div style="width:180px;">
-            <p class= "favour-description" style="color:grey; top: 20px;"><%= application.user.name.capitalize %> needs a favour</p>
+            <p class= "favour-description" style="color:grey; top: 20px;"><%= application.favour.user.name.capitalize %> needs a favour</p>
             <p class= "favour-description" style="top:15px;"><%=application.favour.description.truncate(27, separator: /\s/)%></p>
           </div>
           <div style="display: inline; position: relative; bottom: -100px; right: 120px;width: 300px">
@@ -20,14 +20,12 @@
                 <%= link_to 'Accepted', application_path(application, status: 0), method: :patch, class: "clicked btn-ghost-filled2"%>
                 <%= link_to 'Chat', application_path(application), class: "btn-ghost-filled2"%>
               </div>
-            <% elsif application.pending?%>
-               <%= link_to 'Accept', application_path(application, status: 0), method: :patch, class: "btn-ghost-filled2" %>
-             <% end %>
+              <% else %><br>
+              <h6>Waiting for Confirmation...</h6>
+            <% end %>
 
             <% if application.declined? %>
               <%= link_to 'Declined', application_path(application, status: 0), method: :patch, class: "clicked btn-ghost2"%>
-            <% elsif application.pending? %>
-               <%= link_to 'Decline', application_path(application, status: 1), method: :patch, class: "btn-ghost2"%>
              <% end %>
           </div>
         </div>
