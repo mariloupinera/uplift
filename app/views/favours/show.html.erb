@@ -24,14 +24,14 @@
 				</div>
 
 				<div class="text-box ml-3 mt-4" style="margin-right: 20px;">
-					<h5 class="mb-2" style="color:grey">I need help with <%=@favour.favour_type.content%></h5>
+					<h5 class="mb-2" style="color:grey">I need help with <%=@favour.favour_type.content.capitalize%></h5>
 						<%# <%= @favour.favour_type, collection: FavourType::TYPES %>
 
 					<p class="mb-1" style="color:grey"><strong>Duration: </strong>
 						<%= @favour.duration %></p>
 
 					<p class="mb-1" style="color:grey"><strong>Location: </strong>
-						<%= @favour.zone %></p>
+						<%= @favour.zone.capitalize%></p>
 
 					<p class="mb-1" style="color:grey"><strong>About: </strong>
             <%= @favour.description.capitalize %></p>
