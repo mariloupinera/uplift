@@ -30,7 +30,7 @@
       <div class="card-favour mb-4">
         <div style="display:flex; justify-content:space-between">
           <div class="card-user-details">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class= "avatar-rounded" alt="User profile picture">
+              <%= user_avatar(favour.user, class: "rounded-circle avatar-img", height: 50, width: 50) %>
             <p class="user-name text-center"><%=favour.user.name.capitalize %></p>
           </div>
           <div style="width:200px">
