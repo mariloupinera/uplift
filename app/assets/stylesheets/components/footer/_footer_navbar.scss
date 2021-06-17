@@ -38,10 +38,10 @@
   width:90vw;
   height: 220px;
   transition: ease 300ms;
-  background-color: #fdfbfb;
+  background-color: #f3dcdc;
   border-radius: 15px;
   box-shadow: 0px 4px 4px rgba(90, 88, 88, 0.15);
-  border: 1px solid #eec2c2;;
+  // border: 1px solid #f06b6b;;
   &.active{
     top: -280px;
   }
@@ -53,8 +53,8 @@
   // font-weight: bold;
   padding: 5px;
   text-align: left;
-  font-size: 20px;
-  top:20px;
+  top: 23px;
+  left:10px;
 
 }
 
@@ -68,8 +68,9 @@ ul {
 }
 
 .pop-up-text a {
-  text-decoration: rgb(87, 87, 87);
-  color: rgb(87, 87, 87)!important;
+  text-decoration: rgb(0, 0, 0);
+  color: rgb(0, 0, 0)!important;
+  font-size: 20px;
 }
 
 // #user-pop-up {
