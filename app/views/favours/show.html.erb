@@ -43,7 +43,7 @@
            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
         </div><br>
 
-				<div class="mb-5 mt-5" style= "display: initial; ">
+				<div class="mb-5 mt-5" style= "display: initial; text-align: center; ">
 					<% if user_signed_in? %>
 
 					 <%= link_to 'Apply', favour_applications_path(@favour), method: :post, class: "btn-ghost-filled2" if @favour.user != current_user %>
