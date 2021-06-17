@@ -4,17 +4,17 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12" style="padding-top: 60px;">
-      <h2 class="text-center mt-4" >YOUR CREDIT</h2>
+      <h2 class="text-center mt-4" >Your credit balance</h2>
       <button class="credit-btn mt-4" style="position:absolute; left: 115px; font-size: 20px; font-weight: bold;"><%= current_user.balance %> points</button>
       <br>
       <br>
       <br>
-      <h4 class="mt-4" style="font-size: 16px;">Recent activity</h4>
+      <h4 class="mt-4" style="font-size: 16px;">Recent activity and credit history</h4>
       <% @transactions.each do |transaction| %>
       <div class="card-credits mt-3">
           <div>
             <div style="width:180px">
-              <p style="color:grey; position:relative; top:35px; right:-50px;"><%= transaction.name%></p>
+              <p style="color:grey; position:relative; top:35px; right:-50px;"><%= transaction.name.capitalize%></p>
               <p style="position:relative; top:35px; right:-50px;"><%= transaction.created_at.strftime('%b %d, %Y') %></p>
               <p style="position:relative; right:-280px; top: -5px; font-weight:bold;"><%= transaction.amount_formatted %></p>
             </div>

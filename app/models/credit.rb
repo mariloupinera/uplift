@@ -2,7 +2,7 @@ class Credit < ApplicationRecord
   belongs_to :user
 
   def name
-    'Redeemed'
+    'Redeemed points'
   end
 
   def amount_formatted
