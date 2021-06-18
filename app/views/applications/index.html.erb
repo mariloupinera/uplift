@@ -7,9 +7,10 @@
         <div style="display:flex">
           <div class="card-user-details">
             <%= user_avatar(application.user, class: "avatar-rounded", height: 50, width: 50) %>
-            <p class="user-name text-center"><%= application.user.name.capitalize! %></p>
+            <p class="user-name text-center"><%= application.user.name.capitalize %></p>
           </div>
           <div style="width:180px;">
+
             <p class= "favour-description" style="color:grey; top: 20px;"><%= application.user.name.capitalize! %> has applied for a favour</p>
             <p class= "favour-description" style="top:15px;"><%=application.favour.description.capitalize.truncate(27, separator: /\s/)%></p>
           </div>
