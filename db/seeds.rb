@@ -220,6 +220,3 @@ credit_4.save
 
 p credit_5 = Credit.find_or_create_by(amount_redeemed: 0, user: sally)
 credit_5.save
-
-p credit_6 = Credit.find_or_create_by(amount_redeemed: 0, user: marilou)
-credit_6.save
