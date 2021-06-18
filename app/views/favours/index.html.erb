@@ -36,9 +36,10 @@
             <p class="user-name text-center"><%=favour.user.name.capitalize %></p>
           </div>
           <div style="width:200px">
-            <p class= "favour-description mb-1"><%=favour.user.name.capitalize%> needs a favour!</p>
-            <p class= "favour-description mb-1"><strong>Favour type: <%=favour.favour_type.content%></strong></p>
-            <p class= "favour-description mb-1"><%=favour.description.capitalize.truncate(27, separator: /\s/)%></p>
+            <p class= "favour-description mb-1"><%=favour.user.name.capitalize%> Needs a Favour!</p>
+            <p class= "favour-description mb-1"><strong>Favour type:</strong> <%=favour.favour_type.content.capitalize%></p>
+            <p class= "favour-description mb-1"><%=favour.description.capitalize.truncate(27, separator: /\s/)%></p><br><br>
+            <p class="date"><em><%= favour.created_at.strftime("%a %b %e at %l:%M%p") %></em></p>
           </div>
         </div>
       </div>
@@ -47,6 +48,10 @@
 				<p class="m-0 justify-content-center"><%=favour.user.average_rating%>/5
 				  <%= image_tag('star.png', height: '12px',width: '14px') %></p>
 			</div>
+      <div class="datetime">
+
+
+      </div>
 
       <%end %>
     <% end %>
