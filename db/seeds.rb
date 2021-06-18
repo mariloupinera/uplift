@@ -78,6 +78,15 @@ sally.avatar.attach(io: file, filename: 'sally.jpg', content_type: 'image/jpg')
 sally.password = 'qwerty'
 sally.save
 
+p nirmala = User.new(name: 'Nirmala', address: '1091 Amsterdam, Netherlands', email: 'nirmala@gmail.com', skills: [accounting, clerical, gardening])
+file = URI.open('https://avatars.githubusercontent.com/u/79684449?s=400&u=ddd5f9a446f03e0066ce2ed242374f28ec642ff0&v=4')
+nirmala.avatar.attach(io: file, filename: 'nirmala.jpg', content_type: 'image/jpg')
+nirmala.password = 'qwerty'
+nirmala.save
+
+
+
+
 
 # Favour Types
 
@@ -136,8 +145,6 @@ tax_work.photo.attach(io: file, filename: 'tax_1.jpg', content_type: 'image/jpg'
 tax_work.save
 
 
-
-
 # Applications
 
 p application_1 = Application.find_or_create_by(content: 'Would be great to get this task', status: 'accepted', done: 'completed', favour: plumbing_house, user: nancy)
@@ -170,7 +177,7 @@ application_5.reviews.create(rating: 4, content: 'Excellent work, really reommen
 application_5.save
 p application_5.errors.full_messages
 
-p application_6 = Application.find_or_create_by(content: 'Would be great to perform this task. Lots of relevant experience.', status: 'accepted', done: 'incomplete', favour: gardening_house, user: marilou)
+p application_6 = Application.find_or_create_by(content: 'Would be great to perform this task. Lots of relevant experience.', status: 'accepted', done: 'completed', favour: gardening_house, user: marilou)
 application_6.reviews.create(rating: 4, content: 'Good job, really reommend.')
 application_6.reviews.create(rating: 4, content: 'Excellent work, really reommend.')
 application_6.reviews.create(rating: 4, content: 'Excellent work, really reommend.')
@@ -187,14 +194,12 @@ p application_7.errors.full_messages
 
 
 
-
-
-
-
-
-
-
-
+p application_8 = Application.find_or_create_by(content: 'I am an accountant. I can do taxes.', status: 'pending', done: 'incomplete', favour: tax_work, user: nirmala)
+application_8.reviews.create(rating: 5, content: 'Good job, really reommend.')
+application_8.reviews.create(rating: 5, content: 'Excellent work, really reommend.')
+application_8.reviews.create(rating: 5, content: 'Excellent work, really reommend.')
+application_8.save
+p application_8.errors.full_messages
 
 
 

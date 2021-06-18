@@ -10,7 +10,8 @@
             <p class="user-name text-center"><%= application.user.name.capitalize %></p>
           </div>
           <div style="width:180px;">
-            <p class= "favour-description" style="color:grey; top: 20px;"><%= application.user.name.capitalize %> needs a favour</p>
+
+            <p class= "favour-description" style="color:grey; top: 20px;"><%= application.user.name.capitalize! %> has applied for a favour</p>
             <p class= "favour-description" style="top:15px;"><%=application.favour.description.capitalize.truncate(27, separator: /\s/)%></p>
           </div>
           <div style="display: inline; position: relative; bottom: -110px; right: 120px;width: 310px">
