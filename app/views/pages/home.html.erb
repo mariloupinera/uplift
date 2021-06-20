@@ -9,8 +9,14 @@
           <div style="display: flex; justify-content: space-around;">
             <!-- <button class="btn-ghost-filled2">Ask a favour</button>
             <button class="btn-ghost2">Offer a help</button>
- -->        <%= link_to 'Ask a Favour', new_favour_path, class: "btn btn-ghost-filled2" %>
+
+ -->
+          <% if user_signed_in? %>
+            <%= link_to 'Ask a Favour', new_favour_path, class: "btn btn-ghost-filled2" %>
             <%= link_to 'Help Someone', favours_path, class: "btn btn-ghost2" %>
+          <% else %>
+            <%= link_to 'View All Favours', favours_path, class: "btn btn-ghost-filled2" %>
+          <% end %>
           </div>
         </div>
       </div>
