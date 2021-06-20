@@ -3,37 +3,33 @@
     <div class="col-12 col-lg-12 col-sm-4 position-static">
       <div class="footer-links">
         <a href="/"><i class="fas fa-home"></i></a>
-        <% if user_signed_in? %>
-            <%= link_to credits_path do %>
-            <i class="fas fa-coins"></i>
-            <% end %>
-          <% end %>
         <!-- <a href="#"><i class="fas fa-coins"></i></a> -->
 
         <% if user_signed_in? %>
+          <%= link_to credits_path do %>
+            <i class="fas fa-coins"></i>
+            <% end %>
           <%= link_to my_applications_path do %>
-          <i class="far fa-comments"></i>
-          <% end %>
-        <% else %>
-          <%= link_to new_user_registration_path do%>
-          <i class="far fa-comments"></i>
-          <% end %>
-        <% end %>
+            <i class="far fa-comments"></i>
+            <% end %>
+
+            <%#= link_to new_user_registration_path do%>
+            <!-- <i class="far fa-comments"></i> -->
+          <%# end %>
+        <%# end %>
 
         <a onclick= "togglePopUp()" ><i class="far fa-user"></i></a>
-      <!--     <div class="user-pop-up" id="user-pop-up">
-        <a onclick= "togglePopUp()" ><i class="far fa-user"></i>
-        </a>
 
-      </div> -->
 
       <div class="user-pop-up" id="user-pop-up">
           <div class="pop-up-text">
           <ul>
-              <p class="mb-1 p-1"><i class="fas fa-user-edit mt-2"></i> &nbsp &nbsp &nbsp <%= link_to  'My Profile', applications_path%></p>
-              <p class="mb-1 p-1"><i class="fas fa-book-open"></i> &nbsp &nbsp &nbsp <%= link_to  'My Favours', applications_path%></p>
-              <p class="mb-1 p-1"><i class="far fa-check-circle"></i> &nbsp &nbsp &nbsp  <%= link_to  'Pending Favours', applications_path%> </p>
-              <p class="mb-1 p-1"><i class="fas fa-check-square"></i>  &nbsp &nbsp &nbsp <%= link_to 'Mark Favour as Done',  done_applications_path %></p>
+              <p class="mb-1 p-1"><i class="fas fa-user-edit mt-2"></i> &nbsp &nbsp <%= link_to 'My Profile', applications_path%></p>
+              <p class="mb-1 p-1"><i class="fas fa-book-open"></i> &nbsp &nbsp <%= link_to 'My Favours', applications_path%></p>
+              <p class="mb-1 p-1"><i class="far fa-check-circle"></i> &nbsp &nbsp <%= link_to 'Pending Favours', applications_path%> </p>
+              <p class="mb-1 p-1"><i class="fas fa-check-square"></i>  &nbsp &nbsp <%= link_to 'Mark Favour as Done', done_applications_path %></p>
+              <p class="mb-1 p-1"> &nbsp &nbsp &nbsp &nbsp &nbsp <%= link_to "Log-out", destroy_user_session_path, method: :delete %></p>
+            <% end %>
           </ul>
           </div>
         </div>
